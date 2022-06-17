@@ -1,0 +1,8 @@
+@use '../helpers/themes';
+
+.card {
+	@include themes.themed() {
+		background: themes.t(themes.$card-bg);
+		border-color: themes.t(themes.$card-border);
+	}
+}

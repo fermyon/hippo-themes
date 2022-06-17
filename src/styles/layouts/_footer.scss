@@ -1,0 +1,8 @@
+@use '../helpers/themes';
+
+.footer {
+    @include themes.themed() {
+        background-color: themes.t(themes.$bg);
+    }
+    padding: 3rem 1.5rem 6rem;
+}

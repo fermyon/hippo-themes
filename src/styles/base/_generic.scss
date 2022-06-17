@@ -1,0 +1,84 @@
+@use 'colors';
+@use '../helpers/themes';
+@use '../helpers/typography';
+@use '../utilities/mixins';
+
+$render-mode: optimizeLegibility !default;
+
+$body-font-size: 1em !default;
+$body-line-height: 1.5 !default;
+$body-weight: typography.$font-weight-normal !default;
+
+html {
+	font-size: $body-font-size;
+	text-rendering: $render-mode;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+	display: block;
+}
+
+body {
+	@include themes.themed() {
+		background-color: themes.t(themes.$bg);
+		color: themes.t(themes.$text);
+	}
+
+	font-family: typography.$font-family-sans-serif;
+	font-size: $body-font-size;
+	font-weight: $body-weight;
+	line-height: $body-line-height;
+}
+
+code,
+pre {
+	-moz-osx-font-smoothing: auto;
+	-webkit-font-smoothing: auto;
+	font-family: typography.$font-family-mono;
+}
+
+code,
+pre {
+	font-family: typography.$font-family-mono;
+	font-size: typography.$font-size-6;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+small {
+	font-size: typography.$font-size-7;
+}
+
+table
+td,
+th {
+	vertical-align: top;
+	&:not([align]) {
+		text-align: inherit;
+	}
+
+	th {
+		@include themes.themed() {
+			color: themes.t(themes.$text-strong);
+		}
+	}
+}
+
+.logo {
+	svg {
+		@include themes.themed() {
+			fill: themes.t(themes.$logo);
+		}
+	}
+}

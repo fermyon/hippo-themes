@@ -1,0 +1,91 @@
+@use '../helpers/themes';
+@use '../helpers/typography';
+@use '../utilities/mixins';
+
+.button {
+	@include mixins.border-radius;
+	@include themes.themed() {
+		background-color: themes.t(themes.$button-bg);
+		color: themes.t(themes.$text);
+		border-color: themes.t(themes.$border);
+	}
+    border-width: 1px;
+	cursor: pointer;
+	justify-content: center;
+	padding: calc(.5em - 1px) 1.25em;
+	position: relative;
+	text-align: center;
+	white-space: nowrap;
+	font-size: typography.$font-size-6;
+
+    @each $color in themes.$colors {
+		&.is-#{$color} {
+			@include themes.themed() {
+				background-color: themes.t($color);
+			}
+			border: none;
+			color: white;
+
+			&:hover {
+				@include themes.themed() {
+					background-color: darken(themes.t($color), 7.5%);
+				}
+			}
+		}
+	}
+
+	&.is-small {
+		font-size: typography.$font-size-7;
+	}
+
+	&.is-large {
+		font-size: typography.$font-size-4;
+	}
+
+	&.is-xlarge {
+		font-size: typography.$font-size-3;
+	}
+
+	&.is-outlined {
+		@include themes.themed() {
+			background-color: themes.t(themes.$bg);
+			color: themes.t(themes.$text);
+		}
+
+		@each $color in themes.$colors {
+			&.is-#{$color} {
+				@include themes.themed() {
+					background-color: themes.t(themes.$bg);
+					color: themes.t($color);
+					border: 1px solid themes.t($color);
+				}
+
+				&:hover {
+					@include themes.themed() {
+						background-color: themes.t($color);
+						color: themes.t(themes.$bg);
+					}
+				}
+			}
+		}
+	}
+
+	&.is-rounded {
+		@include mixins.border-radius(9999px, 9999px);
+	}
+
+	&.is-loading {
+		color: transparent !important;
+		pointer-events: none;
+		&::after {
+			@include mixins.loader;
+			@include mixins.center(1em);
+			// position: absolute !important;
+		}
+	}
+
+	&[disabled],
+	fieldset[disabled] & {
+		opacity: 0.5;
+	}
+}

@@ -1,0 +1,19 @@
+{
+  "name": "hippo-themes",
+  "version": "0.1.0",
+  "description": "Custom UI themes for Hippo",
+  "author": "Matt Fisher <matt.fisher@fermyon.com>",
+  "license": "MIT",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.0",
+    "parcel": "^2.6.0"
+  },
+  "dependencies": {
+    "bulma": "^0.9.4"
+  }
+}

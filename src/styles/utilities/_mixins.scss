@@ -1,0 +1,162 @@
+@use 'responsive';
+@use '../helpers/themes';
+
+@mixin transition($property:all, $duration:0.3s, $easing:ease-in-out) {
+	transition: $property $duration $easing;
+}
+
+@mixin border-radius($radius1:0.375em, $radius2:0.375em) {
+	-webkit-border-radius: $radius1 $radius2 $radius1 $radius2;
+	-moz-border-radius: $radius1 $radius2 $radius1 $radius2;
+	border-radius: $radius1 $radius2 $radius1 $radius2;
+}
+
+@mixin box-shadow($xlength:0, $ylength:0.1rem, $size:0, $color:rgba(30,30,30,0.25)) {
+	-webkit-box-shadow: $xlength $ylength $size $color;
+	-moz-box-shadow: $xlength $ylength $size $color;
+	box-shadow: $xlength $ylength $size $color;
+}
+
+@mixin center($width, $height: 0) {
+	position: absolute;
+	@if $height != 0 {
+		left: calc(50% - (#{$width} * 0.5));
+		top: calc(50% - (#{$height} * 0.5));
+	}
+	@else {
+		left: calc(50% - (#{$width} * 0.5));
+		top: calc(50% - (#{$width} * 0.5));
+	}
+}
+
+@mixin verticalCenter {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin unselectable {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@mixin block($spacing: 1.5rem) {
+	&:not(:last-child) {
+		margin-bottom: $spacing
+	}
+}
+
+@mixin delete {
+	@include unselectable;
+	@include border-radius(9999px, 9999px);
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	@include themes.themed() {
+		background-color: rgba(themes.t(themes.$bg), 0.2);
+	}
+	border: none;
+	cursor: pointer;
+	pointer-events: auto;
+	display: inline-block;
+	flex-grow: 0;
+	flex-shrink: 0;
+	font-size: 0;
+	height: 20px;
+	max-height: 20px;
+	max-width: 20px;
+	min-height: 20px;
+	min-width: 20px;
+	outline: none;
+	position: relative;
+	vertical-align: top;
+	width: 20px;
+
+	&::before,
+	&::after {
+		background-color: white;
+		content: "";
+		display: block;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform: translateX(-50%) translateY(-50%) rotate(45deg);
+		transform-origin: center center;
+	}
+	&::before {
+		height: 2px;
+		width: 50%;
+	}
+	&::after {
+		height: 50%;
+		width: 2px;
+	}
+	&:hover,
+	&:focus {
+		@include themes.themed() {
+			background-color: rgba(themes.t(themes.$bg), 0.3);
+		}
+	}
+	&:active {
+		@include themes.themed() {
+			background-color: rgba(themes.t(themes.$bg), 0.4);
+		}
+	}
+	// Sizes
+	&.is-small {
+		height: 16px;
+		max-height: 16px;
+		max-width: 16px;
+		min-height: 16px;
+		min-width: 16px;
+		width: 16px;
+	}
+	&.is-large {
+		height: 24px;
+		max-height: 24px;
+		max-width: 24px;
+		min-height: 24px;
+		min-width: 24px;
+		width: 24px;
+	}
+	&.is-xlarge {
+		height: 32px;
+		max-height: 32px;
+		max-width: 32px;
+		min-height: 32px;
+		min-width: 32px;
+		width: 32px;
+	}
+}
+
+@mixin loader {
+	@include border-radius(9999px, 9999px);
+	animation: spinAround 500ms infinite linear;
+	border: 2px solid lightgray;
+	border-right-color: transparent;
+	border-top-color: transparent;
+	content: "";
+	display: block;
+	height: 1em;
+	position: relative;
+	width: 1em;
+}
+
+@mixin mobile {
+	@media screen and (max-width: (responsive.$tablet - 1px)) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media screen and (min-width: responsive.$tablet), print {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media screen and (min-width: responsive.$desktop) {
+		@content;
+	}
+}

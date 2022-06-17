@@ -1,0 +1,116 @@
+@use '../base/colors';
+@use '../helpers/typography';
+@use '../helpers/themes';
+@use '../utilities/mixins';
+
+.content {
+    @include mixins.block;
+
+    li + li {
+        margin-top: 0.25em;
+    }
+
+    p,
+    dl,
+    ol,
+    ul,
+    blockquote,
+    pre,
+    table {
+        &:not(:last-child) {
+            margin-bottom: 1em;
+        }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-weight: typography.$font-weight-semibold;
+        line-height: 1.125;
+    }
+    h1 {
+        font-size: typography.$font-size-1;
+        margin-bottom: 0.5em;
+        &:not(:first-child) {
+            margin-top: 1em;
+        }
+    }
+
+    h2 {
+        font-size: typography.$font-size-2;
+        margin-bottom: 0.5714em;
+        &:not(:first-child) {
+            margin-top: 1.1428em;
+        }
+    }
+
+    h3 {
+        font-size: typography.$font-size-3;
+        margin-bottom: 0.6666em;
+        &:not(:first-child) {
+            margin-top: 1.3333em;
+        }
+    }
+
+    h4 {
+        font-size: typography.$font-size-4;
+        margin-bottom: 0.8em;
+    }
+
+    h5 {
+        font-size: typography.$font-size-5;
+        margin-bottom: 0.8888em;
+    }
+
+    h6 {
+        font-size: typography.$font-size-6;
+        margin-bottom: 1em;
+    }
+
+    p, span {
+        font-size: typography.$font-size-6;
+        font-weight: typography.$font-weight-normal;
+    }
+
+    a {
+        @include themes.themed() {
+            color: themes.t(themes.$link);
+        }
+
+        cursor: pointer;
+        text-decoration: none;
+        position: relative;
+        border-radius: 0.333rem;
+
+        &:hover {
+            &:after {
+                opacity: 1;
+                left: 5%;
+                right: 5%;
+            }
+        }
+
+        &:after {
+            position: absolute;
+            text-align: center;
+            background: colors.$colablue;
+            content: " ";
+            height: 0.125rem;
+            bottom: -0.2rem;
+            display: inline-block;
+            opacity: 0;
+            left: 33%;
+            right: 33%;
+            @include mixins.transition;
+        }
+    }
+
+    table {
+        th {
+            font-weight: typography.$font-weight-semibold;
+        }
+    }
+}

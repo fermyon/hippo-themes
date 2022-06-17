@@ -1,0 +1,62 @@
+@use '../helpers/themes';
+@use '../helpers/typography';
+@use '../utilities/functions';
+@use '../utilities/mixins';
+
+.message {
+	@include mixins.border-radius;
+	justify-content: center;
+	font-size: 1rem;
+	@include themes.themed() {
+		background-color: themes.t(themes.$message-bg);
+	}
+
+	&.is-small {
+		font-size: typography.$font-size-7;
+	}
+
+	&.is-large {
+		font-size: typography.$font-size-4;
+	}
+
+	.message-header {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+		padding: .75em 1em;
+		position: relative;
+		line-height: 1.25;
+		p {
+			color: white;
+			font-size: typography.$font-size-6;
+			font-weight: typography.$font-weight-semibold;
+		}
+	}
+
+	.message-body {
+		padding: .75em 1em;
+
+		@include themes.themed() {
+			background-color: functions.tint(themes.t(themes.$message-bg), 60%);
+			color: functions.shade(themes.t(themes.$message-bg), 50%);
+		}
+	}
+
+	@each $color in themes.$colors {
+		&.is-#{$color} {
+			.message-header {
+				@include themes.themed() {
+					background-color: themes.t($color);
+				}
+			}
+
+			.message-body {
+				@include themes.themed() {
+					color: functions.shade(themes.t($color), 25%);
+					background-color: functions.tint(themes.t($color), 75%);
+					border-color: themes.t(themes.$message-bg);
+				}
+			}
+		}
+	}
+}

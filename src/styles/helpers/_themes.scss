@@ -1,0 +1,88 @@
+@use '../base/colors';
+
+// shortcuts
+$bg: 'bg';
+$button-bg: 'button-bg';
+$card-bg: 'card-bg';
+$card-border: 'card-border';
+$message-bg: 'message-bg';
+$table-bg: 'table-bg';
+$text: 'text';
+$text-strong: 'text-strong';
+$primary: 'primary';
+$link: 'link';
+$info: 'info';
+$success: 'success';
+$warning: 'warning';
+$danger: 'danger';
+$border: 'border';
+$logo: 'logo';
+
+$colors: $primary, $link, $info, $success, $warning, $danger;
+
+// themes
+$themes: (
+	light: (
+		bg: colors.$bg-light,
+		button-bg: colors.$bg-light,
+		card-bg: colors.$card-bg-light,
+		card-border: colors.$card-border-light,
+		message-bg: colors.$message-bg-light,
+		table-bg: colors.$table-bg-light,
+		text: colors.$text-light,
+		text-strong: colors.$text-strong-light,
+		primary: colors.$primary-light,
+		link: colors.$link-light,
+		info: colors.$info-light,
+		success: colors.$success-light,
+		warning: colors.$warning-light,
+		danger: colors.$danger-light,
+		border: colors.$border-light,
+		logo: colors.$logo-light
+	),
+	dark: (
+		bg: colors.$bg-dark,
+		button-bg: colors.$bg-dark,
+		card-bg: colors.$card-bg-dark,
+		card-border: colors.$card-border-dark,
+		message-bg: colors.$message-bg-dark,
+		table-bg: colors.$table-bg-dark,
+		text: colors.$text-dark,
+		text-strong: colors.$text-strong-dark,
+		primary: colors.$primary-dark,
+		link: colors.$link-dark,
+		info: colors.$info-dark,
+		success: colors.$success-dark,
+		warning: colors.$warning-dark,
+		danger: colors.$danger-dark,
+		border: colors.$border-dark,
+		logo: colors.$logo-dark
+	),
+);
+
+@mixin themed() {
+	@each $theme, $map in $themes {
+		.theme-#{$theme} & {
+			$theme-map: () !global;
+			@each $key, $submap in $map {
+				$value: map-get(map-get($themes, $theme), '#{$key}');
+				$theme-map: map-merge($theme-map, ($key: $value)) !global;
+			}
+			@content;
+			$theme-map: null !global;
+		}
+	}
+}
+
+@function t($key) {
+	@return map-get($theme-map, $key);
+}
+
+@each $color in $colors {
+	.is-#{$color} {
+		@include themed() {
+			background-color: t($color);
+			color: white;
+		}
+	}
+}
