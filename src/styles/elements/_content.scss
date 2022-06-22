@@ -75,39 +75,6 @@
         font-weight: typography.$font-weight-normal;
     }
 
-    a {
-        @include themes.themed() {
-            color: themes.t(themes.$link);
-        }
-
-        cursor: pointer;
-        text-decoration: none;
-        position: relative;
-        border-radius: 0.333rem;
-
-        &:hover {
-            &:after {
-                opacity: 1;
-                left: 5%;
-                right: 5%;
-            }
-        }
-
-        &:after {
-            position: absolute;
-            text-align: center;
-            background: colors.$colablue;
-            content: " ";
-            height: 0.125rem;
-            bottom: -0.2rem;
-            display: inline-block;
-            opacity: 0;
-            left: 33%;
-            right: 33%;
-            @include mixins.transition;
-        }
-    }
-
     table {
         th {
             font-weight: typography.$font-weight-semibold;

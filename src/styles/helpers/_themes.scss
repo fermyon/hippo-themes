@@ -79,10 +79,9 @@ $themes: (
 }
 
 @each $color in $colors {
-	.is-#{$color} {
+	.has-text-#{$color} {
 		@include themed() {
-			background-color: t($color);
-			color: white;
+			color: t($color);
 		}
 	}
 }

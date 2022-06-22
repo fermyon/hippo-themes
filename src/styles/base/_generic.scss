@@ -12,7 +12,6 @@ $body-weight: typography.$font-weight-normal !default;
 html {
 	font-size: $body-font-size;
 	text-rendering: $render-mode;
-	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -40,7 +39,6 @@ body {
 
 code,
 pre {
-	-moz-osx-font-smoothing: auto;
 	-webkit-font-smoothing: auto;
 	font-family: typography.$font-family-mono;
 }
@@ -76,9 +74,40 @@ th {
 }
 
 .logo {
-	svg {
-		@include themes.themed() {
-			fill: themes.t(themes.$logo);
+	@include themes.themed() {
+		fill: themes.t(themes.$logo);
+	}
+}
+
+a {
+	@include themes.themed() {
+		color: themes.t(themes.$link);
+	}
+
+	cursor: pointer;
+	text-decoration: none;
+	position: relative;
+	border-radius: 0.333rem;
+
+	&:hover {
+		&:after {
+			opacity: 1;
+			left: 5%;
+			right: 5%;
 		}
+	}
+
+	&:after {
+		position: absolute;
+		text-align: center;
+		background: colors.$colablue;
+		content: " ";
+		height: 0.125rem;
+		bottom: -0.2rem;
+		display: inline-block;
+		opacity: 0;
+		left: 33%;
+		right: 33%;
+		@include mixins.transition;
 	}
 }

@@ -65,6 +65,11 @@ $pagination-margin: 0.25rem !default;
 	&:active {
 		@include mixins.box-shadow;
 	}
+	&:hover {
+		&::after {
+			content: none;
+		}
+	}
 }
 
 .pagination-previous,
