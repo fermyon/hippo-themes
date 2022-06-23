@@ -10,7 +10,7 @@
 		color: themes.t(themes.$text);
 		border-color: themes.t(themes.$border);
 	}
-    border-width: 1px;
+    border-width: 0px;
 	cursor: pointer;
 	justify-content: center;
 	padding: calc(.5em - 1px) 1.25em;
@@ -49,17 +49,25 @@
 
 	&.is-outlined {
 		@include themes.themed() {
-			background-color: themes.t(themes.$bg);
 			color: themes.t(themes.$text);
+			border: 1px solid themes.t(themes.$button-bg);
+		}
+		background-color: transparent;
+
+		&:hover {
+			@include themes.themed() {
+				background-color: themes.t(themes.$button-bg);
+				color: themes.t(themes.$bg);
+			}
 		}
 
 		@each $color in themes.$colors {
 			&.is-#{$color} {
 				@include themes.themed() {
-					background-color: themes.t(themes.$bg);
 					color: themes.t($color);
 					border: 1px solid themes.t($color);
 				}
+				background-color: transparent;
 
 				&:hover {
 					@include themes.themed() {

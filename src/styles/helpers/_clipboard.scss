@@ -1,0 +1,22 @@
+@use '../base/colors';
+@use '../utilities/mixins';
+
+.copy {
+	@include mixins.transition($duration:0.1s);
+	cursor: pointer;
+
+	&:hover {
+		background-color: colors.$lightgray-xlight;
+	}
+
+	&:active {
+		opacity: 0.8;
+		&:after {
+			opacity: 1;
+		}
+	}
+
+	&.is-rounded {
+		@include mixins.border-radius(9999px,9999px);
+	}
+}

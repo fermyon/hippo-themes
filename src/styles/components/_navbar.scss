@@ -288,16 +288,15 @@ a.navbar-item,
 	}
 	.navbar {
 		min-height: $navbar-height;
-		&.is-spaced {
-			padding: $navbar-padding-vertical $navbar-padding-horizontal;
-			.navbar-start,
-			.navbar-end {
-				align-items: center;
-			}
-			a.navbar-item,
-			.navbar-link {
-				@include mixins.border-radius;
-			}
+		padding: $navbar-padding-vertical $navbar-padding-horizontal;
+
+		.navbar-start,
+		.navbar-end {
+			align-items: center;
+		}
+		a.navbar-item,
+		.navbar-link {
+			@include mixins.border-radius;
 		}
 		&.is-transparent {
 			a.navbar-item,

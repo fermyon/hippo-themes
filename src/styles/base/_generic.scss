@@ -107,3 +107,18 @@ a {
 		@include mixins.transition;
 	}
 }
+
+section {
+	max-width: 48.5rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+hr {
+	height: .33rem;
+	width: 25%;
+	background: colors.$lavender;
+	@include mixins.border-radius(9999px,9999px);
+	border: none;
+	margin: 2.5rem 0;
+}

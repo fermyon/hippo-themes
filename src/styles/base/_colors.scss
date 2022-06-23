@@ -21,6 +21,29 @@ $lightlavender: #ECE5EE;
 $lightlemon:    #F9F7EE;
 $lightplum:     #D3C3D9;
 
+$brand-colors: (
+    'oxfordblue': $oxfordblue,
+    'seagreen': $seagreen,
+    'colablue': $colablue,
+    'lavender': $lavender,
+    'rust': $rust,
+    'darkocean': $darkocean,
+    'darkolive': $darkolive,
+    'darkplum': $darkplum,
+    'darkspace': $darkspace,
+    'midblue': $midblue,
+    'midgreen': $midgreen,
+    'lightgray': $lightgray,
+    'lightlavender': $lightlavender,
+    'lightlemon': $lightlemon,
+    'lightplum': $lightplum
+);
+
+@each $name, $color in $brand-colors {
+    .is-#{$name} {
+        background-color: $color;
+    }
+}
 
 // light/dark variants
 $oxfordblue-xlight: lighten($oxfordblue, 10%);
@@ -104,6 +127,7 @@ $lightplum-xdark: darken($lightplum, 3%);
 // light mode
 $bg-light: $lightlavender-xlight;
 $card-bg-light: $lightlavender-xlight;
+$card-content-bg-light: white;
 $card-border-light: $lightlavender;
 $message-bg-light: $darkplum-light;
 $table-bg-light: $darkplum-light;
@@ -125,6 +149,7 @@ $logo-light: $oxfordblue;
 // dark mode
 $bg-dark: $oxfordblue;
 $card-bg-dark: $oxfordblue-light;
+$card-content-bg-dark: $oxfordblue;
 $card-border-dark: $oxfordblue-dark;
 $message-bg-dark: $darkplum-dark;
 $table-bg-dark: $darkplum-dark;

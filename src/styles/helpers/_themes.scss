@@ -4,6 +4,7 @@
 $bg: 'bg';
 $button-bg: 'button-bg';
 $card-bg: 'card-bg';
+$card-content-bg: 'card-content-bg';
 $card-border: 'card-border';
 $message-bg: 'message-bg';
 $table-bg: 'table-bg';
@@ -28,8 +29,9 @@ $colors: $primary, $link, $info, $success, $warning, $danger;
 $themes: (
 	light: (
 		bg: colors.$bg-light,
-		button-bg: colors.$bg-light,
+		button-bg: white,
 		card-bg: colors.$card-bg-light,
+		card-content-bg: colors.$card-content-bg-light,
 		card-border: colors.$card-border-light,
 		message-bg: colors.$message-bg-light,
 		table-bg: colors.$table-bg-light,
@@ -50,8 +52,9 @@ $themes: (
 	),
 	dark: (
 		bg: colors.$bg-dark,
-		button-bg: colors.$bg-dark,
+		button-bg: colors.$darkspace,
 		card-bg: colors.$card-bg-dark,
+		card-content-bg: colors.$card-content-bg-dark,
 		card-border: colors.$card-border-dark,
 		message-bg: colors.$message-bg-dark,
 		table-bg: colors.$table-bg-dark,

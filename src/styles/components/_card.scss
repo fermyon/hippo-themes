@@ -1,8 +1,135 @@
 @use '../helpers/themes';
+@use '../helpers/typography';
+@use "../utilities/mixins";
+
+$card-radius: 0.25rem !default;
+
+$card-header-background-color: transparent !default;
+$card-header-padding: 0.75rem 1rem !default;
+$card-header-weight: typography.$font-weight-bold !default;
+
+$card-content-background-color: transparent !default;
+$card-content-padding: 1.5rem !default;
+
+$card-footer-background-color: transparent !default;
+$card-footer-padding: 0.75rem !default;
+
+$card-media-margin: 1.5rem !default;
 
 .card {
 	@include themes.themed() {
-		background: themes.t(themes.$card-bg);
-		border-color: themes.t(themes.$card-border);
+		background-color: themes.t(themes.$card-bg);
+	}
+	@include mixins.box-shadow;
+	@include mixins.border-radius($card-radius, $card-radius);
+	max-width: 100%;
+	position: relative;
+}
+
+@mixin card-item {
+	&:first-child {
+		border-top-left-radius: $card-radius;
+		border-top-right-radius: $card-radius;
+	}
+	&:last-child {
+		border-bottom-left-radius: $card-radius;
+		border-bottom-right-radius: $card-radius;
+	}
+}
+
+.card-header {
+	@include card-item;
+	@include mixins.box-shadow;
+	@include themes.themed() {
+		background-color: themes.t(themes.$card-bg);
+	}
+	align-items: stretch;
+	display: flex;
+}
+
+.card-header-title {
+	@include themes.themed() {
+		color: themes.t(themes.$text-strong);
+	}
+	align-items: center;
+	display: flex;
+	flex-grow: 1;
+	font-weight: $card-header-weight;
+	padding: $card-header-padding;
+	&.is-centered {
+		justify-content: center;
+	}
+}
+
+.card-header-icon {
+	@include mixins.reset;
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	padding: $card-header-padding;
+}
+
+.card-image {
+	display: block;
+	position: relative;
+	&:first-child {
+		img {
+			border-top-left-radius: $card-radius;
+			border-top-right-radius: $card-radius;
+		}
+	}
+	&:last-child {
+		img {
+			border-bottom-left-radius: $card-radius;
+			border-bottom-right-radius: $card-radius;
+		}
+	}
+}
+
+.card-color-swatch {
+	height: 16em;
+	width: 12em;
+	border-top-left-radius: $card-radius;
+	border-top-right-radius: $card-radius;
+}
+
+.card-content {
+	@include card-item;
+	@include themes.themed() {
+		background-color: themes.t(themes.$card-content-bg);
+	}
+	padding: $card-content-padding;
+}
+
+.card-footer {
+	@include card-item;
+	@include themes.themed() {
+		background-color: themes.t(themes.$card-bg);
+		border-top: 1px solid themes.t(themes.$card-border);
+	}
+	align-items: stretch;
+	display: flex;
+}
+
+.card-footer-item {
+	align-items: center;
+	display: flex;
+	flex-basis: 0;
+	flex-grow: 1;
+	flex-shrink: 0;
+	justify-content: center;
+	padding: $card-footer-padding;
+	&:not(:last-child) {
+		@include themes.themed() {
+			@include mixins.ltr-property("border", 1px solid themes.t(themes.$card-border));
+		}
+	}
+}
+
+// Combinations
+.card {
+	.media:not(:last-child) {
+		margin-bottom: $card-media-margin;
 	}
 }
