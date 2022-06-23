@@ -17,6 +17,12 @@ $font-size-5: 1.125rem;
 $font-size-6: 1rem;
 $font-size-7: 0.75rem;
 
+// convenience variables
+$font-size-normal: $font-size-6;
+$font-size-small: $font-size-7;
+$font-size-large: $font-size-4;
+$font-size-xlarge: $font-size-3;
+
 $font-sizes: (
 	1: $font-size-1,
 	2: $font-size-2,

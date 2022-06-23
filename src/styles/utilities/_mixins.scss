@@ -176,7 +176,7 @@ $rtl: false !default;
 }
 
 @mixin desktop-only {
-	@if $widescreen-enabled {
+	@if responsive.$widescreen-enabled {
 		@media screen and (min-width: responsive.$desktop) and (max-width: (responsive.$widescreen - 1px)) {
 			@content;
 		}
@@ -184,7 +184,7 @@ $rtl: false !default;
 }
 
 @mixin until-widescreen {
-	@if $widescreen-enabled {
+	@if responsive.$widescreen-enabled {
 		@media screen and (max-width: (responsive.$widescreen - 1px)) {
 			@content;
 		}
@@ -192,7 +192,7 @@ $rtl: false !default;
 }
 
 @mixin widescreen {
-	@if $widescreen-enabled {
+	@if responsive.$widescreen-enabled {
 		@media screen and (min-width: responsive.$widescreen) {
 			@content;
 		}
@@ -200,7 +200,7 @@ $rtl: false !default;
 }
 
 @mixin widescreen-only {
-	@if $widescreen-enabled and $fullhd-enabled {
+	@if responsive.$widescreen-enabled and $fullhd-enabled {
 		@media screen and (min-width: responsive.$widescreen) and (max-width: (responsive.$fullhd - 1px)) {
 			@content;
 		}
@@ -208,7 +208,7 @@ $rtl: false !default;
 }
 
 @mixin until-fullhd {
-	@if $fullhd-enabled {
+	@if responsive.$fullhd-enabled {
 		@media screen and (max-width: (responsive.$fullhd - 1px)) {
 			@content;
 		}
@@ -216,7 +216,7 @@ $rtl: false !default;
 }
 
 @mixin fullhd {
-	@if $fullhd-enabled {
+	@if responsive.$fullhd-enabled {
 		@media screen and (min-width: responsive.$fullhd) {
 			@content;
 		}

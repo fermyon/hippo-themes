@@ -83,10 +83,10 @@ $lightgray-light: lighten($lightgray, 5%);
 $lightgray-dark: darken($lightgray, 5%);
 $lightgray-xdark: darken($lightgray, 10%);
 
-$lightlavender-xlight: lighten($lightlavender, 3%);
-$lightlavender-light: lighten($lightlavender, 1%);
-$lightlavender-dark: darken($lightlavender, 1%);
-$lightlavender-xdark: darken($lightlavender, 3%);
+$lightlavender-xlight: lighten($lightlavender, 5%);
+$lightlavender-light: lighten($lightlavender, 3%);
+$lightlavender-dark: darken($lightlavender, 3%);
+$lightlavender-xdark: darken($lightlavender, 5%);
 
 $lightlemon-xlight: lighten($lightlemon, 3%);
 $lightlemon-light: lighten($lightlemon, 1%);
@@ -102,11 +102,14 @@ $lightplum-xdark: darken($lightplum, 3%);
 // theme colors
 
 // light mode
-$bg-light: $lightlavender-light;
+$bg-light: $lightlavender-xlight;
 $card-bg-light: $lightlavender-xlight;
 $card-border-light: $lightlavender;
 $message-bg-light: $darkplum-light;
 $table-bg-light: $darkplum-light;
+$tag-bg-light: $seagreen-xlight;
+$tag-text-light: $oxfordblue;
+$menu-label-light: #7a7a7a;
 $text-light: $oxfordblue;
 $text-strong-light: $oxfordblue-xdark;
 $primary-light: $oxfordblue-light;
@@ -115,7 +118,8 @@ $info-light: $lavender-dark;
 $success-light: $midgreen-dark;
 $warning-light: $rust;
 $danger-light: $rust-dark;
-$border-light: $oxfordblue;
+$border-light: white;
+$hover-light: $lightlavender;
 $logo-light: $oxfordblue;
 
 // dark mode
@@ -124,6 +128,9 @@ $card-bg-dark: $oxfordblue-light;
 $card-border-dark: $oxfordblue-dark;
 $message-bg-dark: $darkplum-dark;
 $table-bg-dark: $darkplum-dark;
+$tag-bg-dark: $darkspace;
+$tag-text-dark: $lavender;
+$menu-label-dark: white;
 $text-dark: white;
 $text-strong-dark: $lightgray;
 $primary-dark: $oxfordblue-xlight;
@@ -132,5 +139,6 @@ $info-dark: $lavender-dark;
 $success-dark: $midgreen-dark;
 $warning-dark: $rust;
 $danger-dark: $rust-dark;
-$border-dark: $lavender;
+$border-dark: $darkocean;
+$hover-dark: $darkspace;
 $logo-dark: white;

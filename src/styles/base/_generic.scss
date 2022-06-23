@@ -13,6 +13,8 @@ html {
 	font-size: $body-font-size;
 	text-rendering: $render-mode;
 	-webkit-font-smoothing: antialiased;
+
+	background-color: transparent;
 }
 
 article,
@@ -70,12 +72,6 @@ th {
 		@include themes.themed() {
 			color: themes.t(themes.$text-strong);
 		}
-	}
-}
-
-.logo {
-	@include themes.themed() {
-		fill: themes.t(themes.$logo);
 	}
 }
 

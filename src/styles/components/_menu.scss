@@ -1,0 +1,93 @@
+@use '../base/colors';
+@use '../helpers/themes';
+@use '../helpers/typography';
+@use '../utilities/mixins';
+
+$menu-list-line-height: 1.25 !default;
+$menu-list-link-padding: 0.5em 0.75em !default;
+$menu-nested-list-margin: 0.75em !default;
+$menu-nested-list-padding-left: 0.75em !default;
+
+$menu-label-font-size: typography.$font-size-small !default;
+$menu-label-letter-spacing: 0.1em !default;
+$menu-label-spacing: 1em !default;
+
+.menu {
+	padding-top: 2rem;
+	font-size: typography.$font-size-normal;
+	// Sizes
+	&.is-small {
+		font-size: typography.$font-size-small;
+	}
+	&.is-large {
+		font-size: typography.$font-size-large;
+	}
+	&.is-xlarge {
+		font-size: typography.$font-size-xlarge;
+	}
+
+	.menu-label {
+		@include themes.themed() {
+			color: themes.t(themes.$menu-label);
+		}
+		font-size: $menu-label-font-size;
+		letter-spacing: $menu-label-letter-spacing;
+		text-transform: uppercase;
+		&:not(:first-child) {
+			margin-top: $menu-label-spacing;
+		}
+		&:not(:last-child) {
+			margin-bottom: $menu-label-spacing;
+		}
+	}
+
+	.menu-list {
+		font-weight: typography.$font-weight-semibold;
+		line-height: $menu-list-line-height;
+		a {
+			@include mixins.transition;
+			@include themes.themed() {
+				color: themes.t(themes.$text);
+			}
+			@include mixins.border-radius(9999px,9999px);
+			display: block;
+			padding: $menu-list-link-padding;
+			&:hover {
+				@include themes.themed() {
+					background-color: themes.t(themes.$hover);
+				}
+				&::after {
+					content: none;
+				}
+			}    // Modifiers
+			&.is-active {
+				@include themes.themed() {
+					background-color: themes.t(themes.$link);
+					color: darken(themes.t(themes.$link), 25%);
+				}
+			}
+			&.is-external-link {
+				svg {
+					@include themes.themed() {
+						fill: themes.t(themes.$logo);
+					}
+				}
+				margin-top: 1.5em;
+				border: 2px solid colors.$seagreen;
+				&:hover {
+					background-color: colors.$seagreen;
+					color: white;
+				}
+			}
+		}
+		li {
+			ul {
+				@include themes.themed() {
+					@include mixins.ltr-property("border", 1px solid themes.t(themes.$border), false);
+				}
+				margin: $menu-nested-list-margin;
+				@include mixins.ltr-property("padding", $menu-nested-list-padding-left, false);
+			}
+		}
+	}
+}

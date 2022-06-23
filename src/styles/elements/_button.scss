@@ -4,6 +4,7 @@
 
 .button {
 	@include mixins.border-radius;
+	@include mixins.transition;
 	@include themes.themed() {
 		background-color: themes.t(themes.$button-bg);
 		color: themes.t(themes.$text);

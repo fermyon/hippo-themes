@@ -7,6 +7,9 @@ $card-bg: 'card-bg';
 $card-border: 'card-border';
 $message-bg: 'message-bg';
 $table-bg: 'table-bg';
+$tag-bg: 'tag-bg';
+$tag-text: 'tag-text';
+$menu-label: 'menu-label';
 $text: 'text';
 $text-strong: 'text-strong';
 $primary: 'primary';
@@ -16,6 +19,7 @@ $success: 'success';
 $warning: 'warning';
 $danger: 'danger';
 $border: 'border';
+$hover: 'hover';
 $logo: 'logo';
 
 $colors: $primary, $link, $info, $success, $warning, $danger;
@@ -29,6 +33,9 @@ $themes: (
 		card-border: colors.$card-border-light,
 		message-bg: colors.$message-bg-light,
 		table-bg: colors.$table-bg-light,
+		tag-bg: colors.$tag-bg-light,
+		tag-text: colors.$tag-text-light,
+		menu-label: colors.$menu-label-light,
 		text: colors.$text-light,
 		text-strong: colors.$text-strong-light,
 		primary: colors.$primary-light,
@@ -38,6 +45,7 @@ $themes: (
 		warning: colors.$warning-light,
 		danger: colors.$danger-light,
 		border: colors.$border-light,
+		hover: colors.$hover-light,
 		logo: colors.$logo-light
 	),
 	dark: (
@@ -47,6 +55,9 @@ $themes: (
 		card-border: colors.$card-border-dark,
 		message-bg: colors.$message-bg-dark,
 		table-bg: colors.$table-bg-dark,
+		tag-bg: colors.$tag-bg-dark,
+		tag-text: colors.$tag-text-dark,
+		menu-label: colors.$menu-label-dark,
 		text: colors.$text-dark,
 		text-strong: colors.$text-strong-dark,
 		primary: colors.$primary-dark,
@@ -56,6 +67,7 @@ $themes: (
 		warning: colors.$warning-dark,
 		danger: colors.$danger-dark,
 		border: colors.$border-dark,
+		hover: colors.$hover-dark,
 		logo: colors.$logo-dark
 	),
 );
