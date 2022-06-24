@@ -105,6 +105,10 @@ $card-media-margin: 1.5rem !default;
 		background-color: themes.t(themes.$card-content-bg);
 	}
 	padding: $card-content-padding;
+
+	p {
+		margin: 0 0 -.333rem;
+	}
 }
 
 .card-footer {

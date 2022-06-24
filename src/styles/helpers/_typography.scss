@@ -48,3 +48,21 @@ $font-weights: (
 		font-weight: $val;
 	}
 }
+
+* {
+	@each $key, $val in $font-sizes {
+		&.is-size-#{$key} {
+			font-size: $val;
+		}
+	}
+}
+
+.has-text-centered {
+	text-align: center !important;
+}
+
+.heading {
+	display: block;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
