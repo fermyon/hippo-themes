@@ -4,7 +4,7 @@
 @use '../utilities/mixins';
 
 $menu-list-line-height: 1.25 !default;
-$menu-list-link-padding: 0.5em 0.75em !default;
+$menu-list-link-padding: 0.5em 1.5em !default;
 $menu-nested-list-margin: 0.75em !default;
 $menu-nested-list-padding-left: 0.75em !default;
 
@@ -49,7 +49,7 @@ $menu-label-spacing: 1em !default;
 				color: themes.t(themes.$text);
 			}
 			@include mixins.border-radius(9999px,9999px);
-			display: block;
+			display: inline-block;
 			padding: $menu-list-link-padding;
 			&:hover {
 				@include themes.themed() {

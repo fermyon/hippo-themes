@@ -1,12 +1,14 @@
 @use '../base/colors';
+@use '../helpers/typography';
 @use '../utilities/mixins';
 
 .copy {
 	@include mixins.transition($duration:0.1s);
 	cursor: pointer;
+	white-space: nowrap;
 
 	&:hover {
-		background-color: colors.$lightgray-xlight;
+		background-color: colors.$lightgray-light;
 	}
 
 	&:active {

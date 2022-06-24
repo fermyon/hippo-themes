@@ -1,0 +1,18 @@
+@use '../base/colors';
+@use '../utilities/mixins';
+
+hr {
+	border: none;
+	display: block;
+	height: 2px;
+	margin: 1.5rem 0;
+	background: colors.$lightgray;
+
+	&.page-break {
+		margin: 2.5rem 0;
+		height: .33rem;
+		width: 25%;
+		background: colors.$lavender;
+		@include mixins.border-radius(9999px,9999px);
+	}
+}

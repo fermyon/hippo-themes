@@ -4,17 +4,13 @@
 @use "../utilities/mixins";
 
 $column-gap: 0.5rem !default;
-$row-gap: 1.5rem !default;
 
 .column {
 	display: block;
 	flex-basis: 0;
 	flex-grow: 1;
 	flex-shrink: 1;
-	padding-top: $row-gap;
-	padding-bottom: $row-gap;
-	padding-left: $column-gap;
-	padding-right: $column-gap;
+	padding: $column-gap;
 	.columns.is-mobile > &.is-narrow {
 		flex: none;
 		width: unset;

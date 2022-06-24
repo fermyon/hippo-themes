@@ -24,6 +24,10 @@ $card-media-margin: 1.5rem !default;
 	@include mixins.border-radius($card-radius, $card-radius);
 	max-width: 100%;
 	position: relative;
+
+	@media (prefers-color-scheme: dark) {
+		outline: 1px solid #fff3;
+	}
 }
 
 @mixin card-item {
@@ -89,7 +93,8 @@ $card-media-margin: 1.5rem !default;
 
 .card-color-swatch {
 	height: 16em;
-	width: 12em;
+	width: 100%;
+	border: none;
 	border-top-left-radius: $card-radius;
 	border-top-right-radius: $card-radius;
 }

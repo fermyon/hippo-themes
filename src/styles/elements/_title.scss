@@ -1,0 +1,72 @@
+@use '../base/colors';
+@use '../helpers/themes';
+@use '../helpers/typography';
+@use '../utilities/mixins';
+
+.title,
+.subtitle {
+    @include mixins.block;
+    word-break: break-word;
+
+    em,
+    span {
+        font-weight: inherit;
+    }
+    em {
+        opacity: 0.33;
+        padding: 0 .2em;
+    }
+    sub {
+        font-size: typography.$font-size-small;
+    }
+    sup {
+        font-size: typography.$font-size-small;
+    }
+    .tag {
+        vertical-align: middle;
+    }
+}
+
+.title {
+    @include themes.themed() {
+        color: themes.t(themes.$text-strong);
+    }
+    font-size: typography.$font-size-3;
+    font-weight: typography.$font-weight-semibold;
+    line-height: 1.125;
+    strong {
+        color: inherit;
+        font-weight: inherit;
+    }
+    &:not(.is-spaced) + .subtitle {
+        margin-top: -1.25rem;
+    }
+    @each $key, $val in typography.$font-sizes {
+        &.is-#{$key} {
+            font-size: $val;
+        }
+    }
+}
+
+.subtitle {
+    @include themes.themed() {
+        color: themes.t(themes.$text);
+    }
+    font-size: typography.$font-size-5;
+    font-weight: typography.$font-weight-normal;
+    line-height: 1.25;
+    strong {
+        @include themes.themed() {
+            color: themes.t(themes.$text);
+        }
+        font-weight: typography.$font-weight-semibold;
+    }
+    &:not(.is-spaced) + .subtitle {
+        margin-top: -1.25rem;
+    }
+    @each $key, $val in typography.$font-sizes {
+        &.is-#{$key} {
+            font-size: $val;
+        }
+    }
+}

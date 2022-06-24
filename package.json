@@ -13,5 +13,8 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
     "parcel": "^2.6.0"
+  },
+  "dependencies": {
+    "minireset.css": "^0.0.7"
   }
 }
