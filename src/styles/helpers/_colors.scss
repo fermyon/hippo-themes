@@ -1,0 +1,15 @@
+@use '../utilities/all' as *;
+
+@each $name, $color in $brand-colors {
+    .is-#{$name} {
+        background-color: $color;
+    }
+}
+
+@each $color in $colors {
+	.has-text-#{$color} {
+		@include themed {
+			color: t($color);
+		}
+	}
+}

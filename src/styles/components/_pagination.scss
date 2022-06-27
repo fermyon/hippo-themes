@@ -1,168 +1,199 @@
-@use '../base/colors';
-@use '../helpers/themes';
-@use '../helpers/typography';
-@use '../utilities/controls';
-@use '../utilities/mixins';
+@use '../utilities/all' as *;
 
-$pagination-margin: 0.25rem !default;
+$pagination-color: $text-strong !default;
+$pagination-border-color: $border !default;
+$pagination-margin: -0.25rem !default;
+$pagination-min-width: $control-height !default;
+
+$pagination-item-font-size: 1em !default;
+$pagination-item-margin: 0.25rem !default;
+$pagination-item-padding-left: 0.5em !default;
+$pagination-item-padding-right: 0.5em !default;
+
+$pagination-nav-padding-left: 0.75em !default;
+$pagination-nav-padding-right: 0.75em !default;
+
+$pagination-hover-color: $link-hover !default;
+
+$pagination-focus-color: $link-focus !default;
+
+$pagination-active-color: $link-active !default;
+
+$pagination-disabled-color: $text-light !default;
+$pagination-disabled-background-color: $border !default;
+$pagination-disabled-border-color: $border !default;
+
+$pagination-current-color: $link-invert !default;
+$pagination-current-background-color: $link !default;
+$pagination-current-border-color: $link !default;
+
+$pagination-ellipsis-color: $lightgray !default;
 
 .pagination {
-	@include mixins.block;
-	font-size: typography.$font-size-6;
-	margin: $pagination-margin;
-
-	// sizes
-	&.is-small {
-		font-size: typography.$font-size-7;
-	}
-	&.is-large {
-		font-size: typography.$font-size-5;
-	}
-	&.is-xlarge {
-		font-size: typography.$font-size-4;
-	}
-	&.is-rounded {
-		.pagination-previous,
-		.pagination-next {
-			padding-left: 1em;
-			padding-right: 1em;
-			@include mixins.border-radius(9999px,9999px);
-		}
-		.pagination-link {
-			@include mixins.border-radius(9999px,9999px);
-		}
-	}
+  @extend block;
+  font-size: $font-size-normal;
+  margin: $pagination-margin;
+  // Sizes
+  &.is-small {
+    font-size: $font-size-small;
+  }
+  &.is-medium {
+    font-size: $font-size-medium;
+  }
+  &.is-large {
+    font-size: $font-size-large;
+  }
+  &.is-rounded {
+    .pagination-previous,
+    .pagination-next {
+      padding-left: 1em;
+      padding-right: 1em;
+      border-radius: $radius-rounded;
+    }
+    .pagination-link {
+      border-radius: $radius-rounded;
+    }
+  }
 }
-
 .pagination,
 .pagination-list {
-	align-items: center;
-	display: flex;
-	justify-content: center;
-	text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
-
 .pagination-previous,
 .pagination-next,
 .pagination-link,
 .pagination-ellipsis {
-	@include controls.control;
-	@include mixins.unselectable;
-	font-size: 1em;
-	justify-content: center;
-	text-align: center;
-	margin: 0.25rem;
-	padding: calc(.1em - 1px) 0.5em;
+  @extend control;
+  @extend unselectable;
+  font-size: $pagination-item-font-size;
+  justify-content: center;
+  margin: $pagination-item-margin;
+  padding-left: $pagination-item-padding-left;
+  padding-right: $pagination-item-padding-right;
+  text-align: center;
 }
-
 .pagination-previous,
 .pagination-next,
 .pagination-link {
-	@include themes.themed() {
-		border-color: themes.t(themes.$border);
-		min-width: 2.5em;
-	}
-	&:active {
-		@include mixins.box-shadow;
-	}
-	&:hover {
-		&::after {
-			content: none;
-		}
-	}
+  @include themed {
+    border-color: t($pagination-border-color);
+    color: t($pagination-color);
+  }
+  min-width: $pagination-min-width;
+  &:hover {
+    @include themed {
+      color: t($pagination-hover-color);
+    }
+  }
+  &:active {
+    @include themed {
+      box-shadow: inset 0 1px 2px rgba(t($scheme-invert), 0.2);
+    }
+  }
+  &[disabled],
+  &.is-disabled {
+    @include themed {
+      background-color: t($pagination-disabled-background-color);
+      border-color: t($pagination-disabled-border-color);
+      color: t($pagination-disabled-color);
+    }
+    box-shadow: none;
+    opacity: 0.5;
+  }
 }
-
 .pagination-previous,
 .pagination-next {
-	white-space: nowrap;
-	padding-left: 0.75em;
-	padding-right: 0.75em;
+  padding-left: $pagination-nav-padding-left;
+  padding-right: $pagination-nav-padding-right;
+  white-space: nowrap;
 }
-
 .pagination-link {
-	&.is-current {
-		@include themes.themed() {
-			background-color: themes.t(themes.$link);
-			border-color: themes.t(themes.$link);
-			color: white;
-		}
-	}
+  &.is-current {
+    @include themed {
+      background-color: t($pagination-current-background-color);
+      border-color: t($pagination-current-border-color);
+      color: t($pagination-current-color);
+    }
+  }
 }
-
 .pagination-ellipsis {
-	pointer-events: none;
+  @include themed {
+    color: t($pagination-ellipsis-color);
+  }
+  pointer-events: none;
 }
-
 .pagination-list {
-	flex-wrap: wrap;
-	li {
-		list-style: none;
-	}
+  flex-wrap: wrap;
+  li {
+    list-style: none;
+  }
 }
-
-@include mixins.mobile {
-	.pagination {
-		flex-wrap: wrap;
-	}
-	.pagination-previous,
-	.pagination-next {
-		flex-grow: 1;
-		flex-shrink: 1;
-	}
-	.pagination-list {
-		li {
-			flex-grow: 1;
-			flex-shrink: 1;
-		}
-	}
+@include mobile {
+  .pagination {
+    flex-wrap: wrap;
+  }
+  .pagination-previous,
+  .pagination-next {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+  .pagination-list {
+    li {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
 }
-
-@include mixins.tablet {
-	.pagination-list {
-		flex-grow: 1;
-		flex-shrink: 1;
-		justify-content: flex-start;
-		order: 1;
-	}
-	.pagination,
-	.pagination-previous,
-	.pagination-next,
-	.pagination-link,
-	.pagination-ellipsis {
-		margin-bottom: 0;
-		margin-top: 0;
-	}
-	.pagination-previous {
-		order: 2;
-	}
-	.pagination-next {
-		order: 3;
-	}
-	.pagination {
-		justify-content: space-between;
-		&.is-centered {
-			.pagination-previous {
-				order: 1;
-			}
-			.pagination-list {
-				justify-content: center;
-				order: 2;
-			}
-			.pagination-next {
-				order: 3;
-			}
-		}
-		&.is-right {
-			.pagination-previous {
-				order: 1;
-			}
-			.pagination-next {
-				order: 2;
-			}
-			.pagination-list {
-				justify-content: flex-end;
-				order: 3;
-			}
-		}
-	}
+@include tablet {
+  .pagination-list {
+    flex-grow: 1;
+    flex-shrink: 1;
+    justify-content: flex-start;
+    order: 1;
+  }
+  .pagination-previous,
+  .pagination-next,
+  .pagination-link,
+  .pagination-ellipsis {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .pagination-previous {
+    order: 2;
+  }
+  .pagination-next {
+    order: 3;
+  }
+  .pagination {
+    justify-content: space-between;
+    margin-bottom: 0;
+    margin-top: 0;
+    &.is-centered {
+      .pagination-previous {
+        order: 1;
+      }
+      .pagination-list {
+        justify-content: center;
+        order: 2;
+      }
+      .pagination-next {
+        order: 3;
+      }
+    }
+    &.is-right {
+      .pagination-previous {
+        order: 1;
+      }
+      .pagination-next {
+        order: 2;
+      }
+      .pagination-list {
+        justify-content: flex-end;
+        order: 3;
+      }
+    }
+  }
 }

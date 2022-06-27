@@ -1,31 +1,32 @@
-@use '../helpers/themes';
-@use '../utilities/functions';
-@use '../utilities/mixins';
+@use '../utilities/all' as *;
+
+$box-color: $text !default;
+$box-background-color: $scheme-main !default;
+$box-radius: $radius-large !default;
+$box-shadow: $shadow !default;
+$box-padding: 1.25rem !default;
 
 .box {
-	@include mixins.block;
-	@include themes.themed() {
-		background-color: lighten(themes.t(themes.$bg), 10%);
-		color: themes.t(themes.$text);
-	}
-	@include mixins.border-radius;
-	box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
-	display: block;
-	padding: 1.67rem 2rem;
+  @extend block;
+  @extend box-shadow;
+  @include themed {
+    background-color: t($box-background-color);
+  }
+  border-radius: $box-radius;
+  color: $box-color;
+  display: block;
+  padding: $box-padding;
 }
-
-a {
-	.box {
-		&:hover,
-		&:focus {
-			@include themes.themed() {
-				box-shadow: 0 0.5em 1em -0.125em rgba(functions.findColorInvert(themes.t(themes.$bg)), 0.1), 0 0 0 1px themes.t(themes.$link);
-			}
-		}
-		&:active {
-			@include themes.themed() {
-				box-shadow: inset 0 1px 2px rgba(functions.findColorInvert(themes.t(themes.$bg)), 0.2), 0 0 0 1px themes.t(themes.$link);
-			}
-		}
-	}
+a.box {
+  &:hover,
+  &:focus {
+    @include themed {
+      box-shadow: 0 0.5em 1em -0.125em rgba(t($scheme-invert), 0.1), 0 0 0 1px t($link);
+    }
+  }
+  &:active {
+    @include themed {
+      box-shadow: inset 0 1px 2px rgba(t($scheme-invert), 0.2), 0 0 0 1px t($link);
+    }
+  }
 }

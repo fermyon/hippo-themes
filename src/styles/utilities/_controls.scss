@@ -1,5 +1,8 @@
-@use 'mixins';
-@use '../helpers/typography';
+@use 'radius' as *;
+@use 'typography' as *;
+
+$control-radius: $radius !default;
+$control-radius-small: $radius-small !default;
 
 $control-border-width: 1px !default;
 
@@ -14,10 +17,10 @@ $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default;
   -webkit-appearance: none;
   align-items: center;
   border: $control-border-width solid transparent;
-  @include mixins.border-radius(9999px,9999px);
+  border-radius: $control-radius;
   box-shadow: none;
   display: inline-flex;
-  font-size: typography.$font-size-6;
+  font-size: $font-size-normal;
   height: $control-height;
   justify-content: flex-start;
   line-height: $control-line-height;
@@ -41,12 +44,12 @@ $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default;
 // The controls sizes use mixins so they can be used at different breakpoints
 }
 @mixin control-small {
-  @include mixins.border-radius;
-  font-size: typography.$font-size-7;
+  border-radius: $control-radius-small;
+  font-size: $font-size-small;
+}
+@mixin control-medium {
+  font-size: $font-size-medium;
 }
 @mixin control-large {
-  font-size: typography.$font-size-4;
-}
-@mixin control-xlarge {
-  font-size: typography.$font-size-3;
+  font-size: $font-size-large;
 }

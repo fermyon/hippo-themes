@@ -51,3 +51,24 @@
 	}
 	@return (map-get($color-rgb, 'red') * .2126) + (map-get($color-rgb, 'green') * .7152) + (map-get($color-rgb, 'blue') * .0722);
 }
+
+@function findLightColor($color, $l: 96%) {
+	@if type-of($color) == 'color' {
+	  $l: 96%;
+	  @if lightness($color) > 96% {
+		$l: lightness($color);
+	  }
+	  @return change-color($color, $lightness: $l);
+	}
+	@return $scheme-main;
+  }
+
+  @function findDarkColor($color, $base-l: 29%) {
+	@if type-of($color) == 'color' {
+	  $luminance: colorLuminance($color);
+	  $luminance-delta: (0.53 - $luminance);
+	  $target-l: round($base-l + ($luminance-delta * 53));
+	  @return change-color($color, $lightness: max($base-l, $target-l));
+	}
+	@return $text-strong;
+  };

@@ -1,14 +1,13 @@
-@use '../base/colors';
-@use '../helpers/typography';
-@use '../utilities/mixins';
+@use '../utilities/all' as *;
 
 .copy {
-	@include mixins.transition($duration:0.1s);
+	@extend transition;
+	transition-duration: 0.1s;
 	cursor: pointer;
 	white-space: nowrap;
 
 	&:hover {
-		background-color: colors.$lightgray-light;
+		background-color: $lightgray-light;
 	}
 
 	&:active {
@@ -19,6 +18,6 @@
 	}
 
 	&.is-rounded {
-		@include mixins.border-radius(9999px,9999px);
+		@include border-radius($radius-rounded, $radius-rounded);
 	}
 }

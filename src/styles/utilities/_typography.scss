@@ -1,0 +1,40 @@
+$font-family-sans-serif: Sen, Europa, Avenir, system, -apple-system, ".SFNSText-Regular", "San Francisco", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+$font-family-mono: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace;
+
+$font-size-1: 2rem;
+$font-size-2: 1.75rem;
+$font-size-3: 1.5rem;
+$font-size-4: 1.25rem;
+$font-size-5: 1.125rem;
+$font-size-6: 1rem;
+$font-size-7: 0.8rem;
+
+// convenience variables
+$font-size-normal: $font-size-6;
+$font-size-small: $font-size-7;
+$font-size-medium: $font-size-4;
+$font-size-large: $font-size-3;
+
+$font-sizes: (
+	1: $font-size-1,
+	2: $font-size-2,
+	3: $font-size-3,
+	4: $font-size-4,
+	5: $font-size-5,
+	6: $font-size-6,
+	7: $font-size-7,
+);
+
+$font-weight-light:    300;
+$font-weight-normal:   400;
+$font-weight-medium:   500;
+$font-weight-semibold: 600;
+$font-weight-bold:     700;
+
+$font-weights: (
+	light:    $font-weight-light,
+	normal:   $font-weight-normal,
+	medium:   $font-weight-medium,
+	semibold: $font-weight-semibold,
+	bold:     $font-weight-bold,
+);

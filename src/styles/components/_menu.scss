@@ -1,92 +1,81 @@
-@use '../base/colors';
-@use '../helpers/themes';
-@use '../helpers/typography';
-@use '../utilities/mixins';
+@use '../utilities/all' as *;
 
+$menu-item-color: $text !default;
+$menu-item-radius: $radius-small !default;
+$menu-item-hover-color: $text-strong !default;
+$menu-item-hover-background-color: $background !default;
+$menu-item-active-color: $link-invert !default;
+$menu-item-active-background-color: $link !default;
+
+$menu-list-border-color: $border !default;
+$menu-list-border-left: 1px solid !default;
 $menu-list-line-height: 1.25 !default;
-$menu-list-link-padding: 0.5em 1.5em !default;
+$menu-list-link-padding: 0.5em 0.75em !default;
 $menu-nested-list-margin: 0.75em !default;
 $menu-nested-list-padding-left: 0.75em !default;
 
-$menu-label-font-size: typography.$font-size-small !default;
+$menu-label-color: $text-light !default;
+$menu-label-font-size: 0.75em !default;
 $menu-label-letter-spacing: 0.1em !default;
 $menu-label-spacing: 1em !default;
 
 .menu {
-	font-size: typography.$font-size-normal;
-	// Sizes
-	&.is-small {
-		font-size: typography.$font-size-small;
-	}
-	&.is-large {
-		font-size: typography.$font-size-large;
-	}
-	&.is-xlarge {
-		font-size: typography.$font-size-xlarge;
-	}
-
-	.menu-label {
-		@include themes.themed() {
-			color: themes.t(themes.$menu-label);
-		}
-		font-size: $menu-label-font-size;
-		letter-spacing: $menu-label-letter-spacing;
-		text-transform: uppercase;
-		&:not(:first-child) {
-			margin-top: $menu-label-spacing;
-		}
-		&:not(:last-child) {
-			margin-bottom: $menu-label-spacing;
-		}
-	}
-
-	.menu-list {
-		font-weight: typography.$font-weight-semibold;
-		line-height: $menu-list-line-height;
-		a {
-			@include mixins.transition;
-			@include themes.themed() {
-				color: themes.t(themes.$text);
-			}
-			@include mixins.border-radius(9999px,9999px);
-			display: inline-block;
-			padding: $menu-list-link-padding;
-			&:hover {
-				@include themes.themed() {
-					background-color: themes.t(themes.$hover);
-				}
-				&::after {
-					content: none;
-				}
-			}    // Modifiers
-			&.is-active {
-				@include themes.themed() {
-					background-color: themes.t(themes.$link);
-					color: darken(themes.t(themes.$link), 25%);
-				}
-			}
-			&.is-external-link {
-				svg {
-					@include themes.themed() {
-						fill: themes.t(themes.$logo);
-					}
-				}
-				margin-top: 1.5em;
-				border: 2px solid colors.$seagreen;
-				&:hover {
-					background-color: colors.$seagreen;
-					color: white;
-				}
-			}
-		}
-		li {
-			ul {
-				@include themes.themed() {
-					@include mixins.ltr-property("border", 1px solid themes.t(themes.$border), false);
-				}
-				margin: $menu-nested-list-margin;
-				@include mixins.ltr-property("padding", $menu-nested-list-padding-left, false);
-			}
-		}
-	}
+  font-size: $font-size-normal;
+  // Sizes
+  &.is-small {
+    font-size: $font-size-small;
+  }
+  &.is-medium {
+    font-size: $font-size-medium;
+  }
+  &.is-large {
+    font-size: $font-size-large;
+  }
+}
+.menu-list {
+  line-height: $menu-list-line-height;
+  a {
+    @include themed {
+      color: t($menu-item-color);
+    }
+    border-radius: $menu-item-radius;
+    display: block;
+    padding: $menu-list-link-padding;
+    &:hover {
+      @include themed {
+        background-color: t($menu-item-hover-background-color);
+        color: t($menu-item-hover-color);
+      }
+    }    // Modifiers
+    &.is-active {
+      @include themed {
+        background-color: t($menu-item-active-background-color);
+        color: t($menu-item-active-color);
+      }
+    }
+  }
+  li {
+    ul {
+      @include themed {
+        border-color: t($menu-list-border-color);
+      }
+      @include ltr-property("border", $menu-list-border-left, false);
+      margin: $menu-nested-list-margin;
+      @include ltr-property("padding", $menu-nested-list-padding-left, false);
+    }
+  }
+}
+.menu-label {
+  @include themed {
+    color: t($menu-label-color);
+  }
+  font-size: $menu-label-font-size;
+  letter-spacing: $menu-label-letter-spacing;
+  text-transform: uppercase;
+  &:not(:first-child) {
+    margin-top: $menu-label-spacing;
+  }
+  &:not(:last-child) {
+    margin-bottom: $menu-label-spacing;
+  }
 }

@@ -1,9 +1,11 @@
-@use '../helpers/themes';
-@use '../helpers/typography';
-@use '../utilities/functions';
-@use "../utilities/mixins";
+@use '../utilities/all' as *;
 
+$tag-background-color: $tag-background !default;
+$tag-color: $text !default;
+$tag-radius: $radius !default;
 $tag-delete-margin: 1px !default;
+
+$tag-colors: $colors !default;
 
 .tags {
 	align-items: center;
@@ -13,7 +15,7 @@ $tag-delete-margin: 1px !default;
 	.tag {
 		margin-bottom: 0.5rem;
 		&:not(:last-child) {
-			@include mixins.ltr-property("margin", 0.5rem);
+      @include ltr-property("margin", 0.5rem);
 		}
 	}
 	&:last-child {
@@ -24,12 +26,12 @@ $tag-delete-margin: 1px !default;
 	}  // Sizes
 	&.are-medium {
 		.tag:not(.is-normal):not(.is-large) {
-			font-size: typography.$font-size-normal;
+      font-size: $font-size-normal;
 		}
 	}
 	&.are-large {
-		.tag:not(.is-normal):not(.is-large) {
-			font-size: typography.$font-size-large;
+    .tag:not(.is-normal):not(.is-medium) {
+      font-size: $font-size-medium;
 		}
 	}
 	&.is-centered {
@@ -52,24 +54,24 @@ $tag-delete-margin: 1px !default;
 	}
 	&.has-addons {
 		.tag {
-			@include mixins.ltr-property("margin", 0);
+      @include ltr-property("margin", 0);
 			&:not(:first-child) {
-				@include mixins.ltr-property("margin", 0, false);
-				@include mixins.ltr {
+        @include ltr-property("margin", 0, false);
+        @include ltr {
 					border-top-left-radius: 0;
 					border-bottom-left-radius: 0;
 				}
-				@include mixins.rtl {
+        @include rtl {
 					border-top-right-radius: 0;
 					border-bottom-right-radius: 0;
 				}
 			}
 			&:not(:last-child) {
-				@include mixins.ltr {
+        @include ltr {
 					border-top-right-radius: 0;
 					border-bottom-right-radius: 0;
 				}
-				@include mixins.rtl {
+        @include rtl {
 					border-top-left-radius: 0;
 					border-bottom-left-radius: 0;
 				}
@@ -78,15 +80,14 @@ $tag-delete-margin: 1px !default;
 	}
 }
 .tag:not(body) {
-	@include themes.themed() {
-		background-color: themes.t(themes.$tag-bg);
-		color: themes.t(themes.$tag-text);
-	}
-	@include mixins.border-radius;
 	align-items: center;
+  @include themed {
+    background-color: t($tag-background-color);
+    color: t($tag-color);
+  }
+  border-radius: $tag-radius;
 	display: inline-flex;
-	font-size: typography.$font-size-small;
-	font-weight: typography.$font-weight-semibold;
+  font-size: $font-size-small;
 	height: 2em;
 	justify-content: center;
 	line-height: 1.5;
@@ -95,42 +96,50 @@ $tag-delete-margin: 1px !default;
 	padding-right: 0.75em;
 	white-space: nowrap;
 	.delete {
-		@include mixins.ltr-property("margin", 0.25rem, false);
-		@include mixins.ltr-property("margin", -0.375rem);
-	}
-	@each $color in themes.$colors {
-		&.is-#{$color} {
-			@include themes.themed() {
-				background-color: themes.t($color);
-				color: white;
+    @include ltr-property("margin", 0.25rem, false);
+    @include ltr-property("margin", -0.375rem);
+  }  // Colors
+  @each $name in $tag-colors {
+    @include themed {
+      $color: t($name);
+      $color-invert: findColorInvert($color);
+      $color-light: findLightColor($color);
+      $color-dark: findDarkColor($color);
+      &.is-#{$name} {
+        background-color: $color;
+        color: $color-invert;
+        &.is-light {
+          background-color: $color-light;
+          color: $color-dark;
+        }  // Sizes
 			}
 		}
 	}
 	&.is-normal {
-		font-size: typography.$font-size-small;
+    font-size: $font-size-small;
+  }
+  &.is-medium {
+    font-size: $font-size-normal;
 	}
 	&.is-large {
-		font-size: typography.$font-size-normal;
-	}
-	&.is-xlarge {
-		font-size: typography.$font-size-large;
+    font-size: $font-size-medium;
 	}
 	.icon {
 		&:first-child:not(:last-child) {
-			@include mixins.ltr-property("margin", -0.375em, false);
-			@include mixins.ltr-property("margin", 0.1875em);
+      @include ltr-property("margin", -0.375em, false);
+      @include ltr-property("margin", 0.1875em);
 		}
 		&:last-child:not(:first-child) {
-			@include mixins.ltr-property("margin", 0.1875em, false);
-			@include mixins.ltr-property("margin", -0.375em);
+      @include ltr-property("margin", 0.1875em, false);
+      @include ltr-property("margin", -0.375em);
 		}
 		&:first-child:last-child {
-			@include mixins.ltr-property("margin", -0.375em, false);
-			@include mixins.ltr-property("margin", -0.375em);
+      @include ltr-property("margin", -0.375em, false);
+      @include ltr-property("margin", -0.375em);
 		}  // Modifiers
 	}
 	&.is-delete {
-		@include mixins.ltr-property("margin", $tag-delete-margin, false);
+    @include ltr-property("margin", $tag-delete-margin, false);
 		padding: 0;
 		position: relative;
 		width: 2em;
@@ -155,18 +164,18 @@ $tag-delete-margin: 1px !default;
 		}
 		&:hover,
 		&:focus {
-			@include themes.themed() {
-				background-color: darken(themes.t(themes.$tag-bg), 5%);
+      @include themed {
+        background-color: darken(t($tag-background-color), 5%);
 			}
 		}
 		&:active {
-			@include themes.themed() {
-				background-color: darken(themes.t(themes.$tag-bg), 10%);
+      @include themed {
+        background-color: darken(t($tag-background-color), 10%);
 			}
 		}
 	}
 	&.is-rounded {
-		@include mixins.border-radius(9999px,9999px);
+    border-radius: $radius-rounded;
 	}
 }
 a.tag {

@@ -1,7 +1,6 @@
 @use 'sass:math';
 
-@use '../utilities/responsive';
-@use "../utilities/mixins";
+@use '../utilities/all' as *;
 
 $column-gap: 0.75rem !default;
 
@@ -56,31 +55,31 @@ $column-gap: 0.75rem !default;
 		width: 80%;
 	}
 	.columns.is-mobile > &.is-offset-three-quarters {
-		@include mixins.ltr-property("margin", 75%, false);
+		@include ltr-property("margin", 75%, false);
 	}
 	.columns.is-mobile > &.is-offset-two-thirds {
-		@include mixins.ltr-property("margin", 66.6666%, false);
+		@include ltr-property("margin", 66.6666%, false);
 	}
 	.columns.is-mobile > &.is-offset-half {
-		@include mixins.ltr-property("margin", 50%, false);
+		@include ltr-property("margin", 50%, false);
 	}
 	.columns.is-mobile > &.is-offset-one-third {
-		@include mixins.ltr-property("margin", 33.3333%, false);
+		@include ltr-property("margin", 33.3333%, false);
 	}
 	.columns.is-mobile > &.is-offset-one-quarter {
-		@include mixins.ltr-property("margin", 25%, false);
+		@include ltr-property("margin", 25%, false);
 	}
 	.columns.is-mobile > &.is-offset-one-fifth {
-		@include mixins.ltr-property("margin", 20%, false);
+		@include ltr-property("margin", 20%, false);
 	}
 	.columns.is-mobile > &.is-offset-two-fifths {
-		@include mixins.ltr-property("margin", 40%, false);
+		@include ltr-property("margin", 40%, false);
 	}
 	.columns.is-mobile > &.is-offset-three-fifths {
-		@include mixins.ltr-property("margin", 60%, false);
+		@include ltr-property("margin", 60%, false);
 	}
 	.columns.is-mobile > &.is-offset-four-fifths {
-		@include mixins.ltr-property("margin", 80%, false);
+		@include ltr-property("margin", 80%, false);
 	}
 	@for $i from 1 through 12 {
 		.columns.is-mobile > &.is-#{$i} {
@@ -88,10 +87,10 @@ $column-gap: 0.75rem !default;
 			width: percentage(math.div($i, 12));
 		}
 		.columns.is-mobile > &.is-offset-#{$i} {
-			@include mixins.ltr-property("margin", percentage(math.div($i, 12)), false);
+			@include ltr-property("margin", percentage(math.div($i, 12)), false);
 		}
 	}
-	@include mixins.mobile {
+	@include mobile {
 		&.is-narrow-mobile {
 			flex: none;
 			width: unset;
@@ -137,31 +136,31 @@ $column-gap: 0.75rem !default;
 			width: 80%;
 		}
 		&.is-offset-three-quarters-mobile {
-			@include mixins.ltr-property("margin", 75%, false);
+			@include ltr-property("margin", 75%, false);
 		}
 		&.is-offset-two-thirds-mobile {
-			@include mixins.ltr-property("margin", 66.6666%, false);
+			@include ltr-property("margin", 66.6666%, false);
 		}
 		&.is-offset-half-mobile {
-			@include mixins.ltr-property("margin", 50%, false);
+			@include ltr-property("margin", 50%, false);
 		}
 		&.is-offset-one-third-mobile {
-			@include mixins.ltr-property("margin", 33.3333%, false);
+			@include ltr-property("margin", 33.3333%, false);
 		}
 		&.is-offset-one-quarter-mobile {
-			@include mixins.ltr-property("margin", 25%, false);
+			@include ltr-property("margin", 25%, false);
 		}
 		&.is-offset-one-fifth-mobile {
-			@include mixins.ltr-property("margin", 20%, false);
+			@include ltr-property("margin", 20%, false);
 		}
 		&.is-offset-two-fifths-mobile {
-			@include mixins.ltr-property("margin", 40%, false);
+			@include ltr-property("margin", 40%, false);
 		}
 		&.is-offset-three-fifths-mobile {
-			@include mixins.ltr-property("margin", 60%, false);
+			@include ltr-property("margin", 60%, false);
 		}
 		&.is-offset-four-fifths-mobile {
-			@include mixins.ltr-property("margin", 80%, false);
+			@include ltr-property("margin", 80%, false);
 		}
 		@for $i from 0 through 12 {
 			&.is-#{$i}-mobile {
@@ -169,11 +168,11 @@ $column-gap: 0.75rem !default;
 				width: percentage(math.div($i, 12));
 			}
 			&.is-offset-#{$i}-mobile {
-				@include mixins.ltr-property("margin", percentage(math.div($i, 12)), false);
+				@include ltr-property("margin", percentage(math.div($i, 12)), false);
 			}
 		}
 	}
-	@include mixins.tablet {
+	@include tablet {
 		&.is-narrow,
 		&.is-narrow-tablet {
 			flex: none;
@@ -231,39 +230,39 @@ $column-gap: 0.75rem !default;
 		}
 		&.is-offset-three-quarters,
 		&.is-offset-three-quarters-tablet {
-			@include mixins.ltr-property("margin", 75%, false);
+			@include ltr-property("margin", 75%, false);
 		}
 		&.is-offset-two-thirds,
 		&.is-offset-two-thirds-tablet {
-			@include mixins.ltr-property("margin", 66.6666%, false);
+			@include ltr-property("margin", 66.6666%, false);
 		}
 		&.is-offset-half,
 		&.is-offset-half-tablet {
-			@include mixins.ltr-property("margin", 50%, false);
+			@include ltr-property("margin", 50%, false);
 		}
 		&.is-offset-one-third,
 		&.is-offset-one-third-tablet {
-			@include mixins.ltr-property("margin", 33.3333%, false);
+			@include ltr-property("margin", 33.3333%, false);
 		}
 		&.is-offset-one-quarter,
 		&.is-offset-one-quarter-tablet {
-			@include mixins.ltr-property("margin", 25%, false);
+			@include ltr-property("margin", 25%, false);
 		}
 		&.is-offset-one-fifth,
 		&.is-offset-one-fifth-tablet {
-			@include mixins.ltr-property("margin", 20%, false);
+			@include ltr-property("margin", 20%, false);
 		}
 		&.is-offset-two-fifths,
 		&.is-offset-two-fifths-tablet {
-			@include mixins.ltr-property("margin", 40%, false);
+			@include ltr-property("margin", 40%, false);
 		}
 		&.is-offset-three-fifths,
 		&.is-offset-three-fifths-tablet {
-			@include mixins.ltr-property("margin", 60%, false);
+			@include ltr-property("margin", 60%, false);
 		}
 		&.is-offset-four-fifths,
 		&.is-offset-four-fifths-tablet {
-			@include mixins.ltr-property("margin", 80%, false);
+			@include ltr-property("margin", 80%, false);
 		}
 		@for $i from 0 through 12 {
 			&.is-#{$i},
@@ -273,11 +272,11 @@ $column-gap: 0.75rem !default;
 			}
 			&.is-offset-#{$i},
 			&.is-offset-#{$i}-tablet {
-				@include mixins.ltr-property("margin", percentage(math.div($i, 12)), false);
+				@include ltr-property("margin", percentage(math.div($i, 12)), false);
 			}
 		}
 	}
-	@include mixins.touch {
+	@include touch {
 		&.is-narrow-touch {
 			flex: none;
 			width: unset;
@@ -323,31 +322,31 @@ $column-gap: 0.75rem !default;
 			width: 80%;
 		}
 		&.is-offset-three-quarters-touch {
-			@include mixins.ltr-property("margin", 75%, false);
+			@include ltr-property("margin", 75%, false);
 		}
 		&.is-offset-two-thirds-touch {
-			@include mixins.ltr-property("margin", 66.6666%, false);
+			@include ltr-property("margin", 66.6666%, false);
 		}
 		&.is-offset-half-touch {
-			@include mixins.ltr-property("margin", 50%, false);
+			@include ltr-property("margin", 50%, false);
 		}
 		&.is-offset-one-third-touch {
-			@include mixins.ltr-property("margin", 33.3333%, false);
+			@include ltr-property("margin", 33.3333%, false);
 		}
 		&.is-offset-one-quarter-touch {
-			@include mixins.ltr-property("margin", 25%, false);
+			@include ltr-property("margin", 25%, false);
 		}
 		&.is-offset-one-fifth-touch {
-			@include mixins.ltr-property("margin", 20%, false);
+			@include ltr-property("margin", 20%, false);
 		}
 		&.is-offset-two-fifths-touch {
-			@include mixins.ltr-property("margin", 40%, false);
+			@include ltr-property("margin", 40%, false);
 		}
 		&.is-offset-three-fifths-touch {
-			@include mixins.ltr-property("margin", 60%, false);
+			@include ltr-property("margin", 60%, false);
 		}
 		&.is-offset-four-fifths-touch {
-			@include mixins.ltr-property("margin", 80%, false);
+			@include ltr-property("margin", 80%, false);
 		}
 		@for $i from 0 through 12 {
 			&.is-#{$i}-touch {
@@ -355,11 +354,11 @@ $column-gap: 0.75rem !default;
 				width: percentage(math.div($i, 12));
 			}
 			&.is-offset-#{$i}-touch {
-				@include mixins.ltr-property("margin", percentage(math.div($i, 12)), false);
+				@include ltr-property("margin", percentage(math.div($i, 12)), false);
 			}
 		}
 	}
-	@include mixins.desktop {
+	@include desktop {
 		&.is-narrow-desktop {
 			flex: none;
 			width: unset;
@@ -405,31 +404,31 @@ $column-gap: 0.75rem !default;
 			width: 80%;
 		}
 		&.is-offset-three-quarters-desktop {
-			@include mixins.ltr-property("margin", 75%, false);
+			@include ltr-property("margin", 75%, false);
 		}
 		&.is-offset-two-thirds-desktop {
-			@include mixins.ltr-property("margin", 66.6666%, false);
+			@include ltr-property("margin", 66.6666%, false);
 		}
 		&.is-offset-half-desktop {
-			@include mixins.ltr-property("margin", 50%, false);
+			@include ltr-property("margin", 50%, false);
 		}
 		&.is-offset-one-third-desktop {
-			@include mixins.ltr-property("margin", 33.3333%, false);
+			@include ltr-property("margin", 33.3333%, false);
 		}
 		&.is-offset-one-quarter-desktop {
-			@include mixins.ltr-property("margin", 25%, false);
+			@include ltr-property("margin", 25%, false);
 		}
 		&.is-offset-one-fifth-desktop {
-			@include mixins.ltr-property("margin", 20%, false);
+			@include ltr-property("margin", 20%, false);
 		}
 		&.is-offset-two-fifths-desktop {
-			@include mixins.ltr-property("margin", 40%, false);
+			@include ltr-property("margin", 40%, false);
 		}
 		&.is-offset-three-fifths-desktop {
-			@include mixins.ltr-property("margin", 60%, false);
+			@include ltr-property("margin", 60%, false);
 		}
 		&.is-offset-four-fifths-desktop {
-			@include mixins.ltr-property("margin", 80%, false);
+			@include ltr-property("margin", 80%, false);
 		}
 		@for $i from 0 through 12 {
 			&.is-#{$i}-desktop {
@@ -437,11 +436,11 @@ $column-gap: 0.75rem !default;
 				width: percentage(math.div($i, 12));
 			}
 			&.is-offset-#{$i}-desktop {
-				@include mixins.ltr-property("margin", percentage(math.div($i, 12)), false);
+				@include ltr-property("margin", percentage(math.div($i, 12)), false);
 			}
 		}
 	}
-	@include mixins.widescreen {
+	@include widescreen {
 		&.is-narrow-widescreen {
 			flex: none;
 			width: unset;
@@ -487,31 +486,31 @@ $column-gap: 0.75rem !default;
 			width: 80%;
 		}
 		&.is-offset-three-quarters-widescreen {
-			@include mixins.ltr-property("margin", 75%, false);
+			@include ltr-property("margin", 75%, false);
 		}
 		&.is-offset-two-thirds-widescreen {
-			@include mixins.ltr-property("margin", 66.6666%, false);
+			@include ltr-property("margin", 66.6666%, false);
 		}
 		&.is-offset-half-widescreen {
-			@include mixins.ltr-property("margin", 50%, false);
+			@include ltr-property("margin", 50%, false);
 		}
 		&.is-offset-one-third-widescreen {
-			@include mixins.ltr-property("margin", 33.3333%, false);
+			@include ltr-property("margin", 33.3333%, false);
 		}
 		&.is-offset-one-quarter-widescreen {
-			@include mixins.ltr-property("margin", 25%, false);
+			@include ltr-property("margin", 25%, false);
 		}
 		&.is-offset-one-fifth-widescreen {
-			@include mixins.ltr-property("margin", 20%, false);
+			@include ltr-property("margin", 20%, false);
 		}
 		&.is-offset-two-fifths-widescreen {
-			@include mixins.ltr-property("margin", 40%, false);
+			@include ltr-property("margin", 40%, false);
 		}
 		&.is-offset-three-fifths-widescreen {
-			@include mixins.ltr-property("margin", 60%, false);
+			@include ltr-property("margin", 60%, false);
 		}
 		&.is-offset-four-fifths-widescreen {
-			@include mixins.ltr-property("margin", 80%, false);
+			@include ltr-property("margin", 80%, false);
 		}
 		@for $i from 0 through 12 {
 			&.is-#{$i}-widescreen {
@@ -519,11 +518,11 @@ $column-gap: 0.75rem !default;
 				width: percentage(math.div($i, 12));
 			}
 			&.is-offset-#{$i}-widescreen {
-				@include mixins.ltr-property("margin", percentage(math.div($i, 12)), false);
+				@include ltr-property("margin", percentage(math.div($i, 12)), false);
 			}
 		}
 	}
-	@include mixins.fullhd {
+	@include fullhd {
 		&.is-narrow-fullhd {
 			flex: none;
 			width: unset;
@@ -569,31 +568,31 @@ $column-gap: 0.75rem !default;
 			width: 80%;
 		}
 		&.is-offset-three-quarters-fullhd {
-			@include mixins.ltr-property("margin", 75%, false);
+			@include ltr-property("margin", 75%, false);
 		}
 		&.is-offset-two-thirds-fullhd {
-			@include mixins.ltr-property("margin", 66.6666%, false);
+			@include ltr-property("margin", 66.6666%, false);
 		}
 		&.is-offset-half-fullhd {
-			@include mixins.ltr-property("margin", 50%, false);
+			@include ltr-property("margin", 50%, false);
 		}
 		&.is-offset-one-third-fullhd {
-			@include mixins.ltr-property("margin", 33.3333%, false);
+			@include ltr-property("margin", 33.3333%, false);
 		}
 		&.is-offset-one-quarter-fullhd {
-			@include mixins.ltr-property("margin", 25%, false);
+			@include ltr-property("margin", 25%, false);
 		}
 		&.is-offset-one-fifth-fullhd {
-			@include mixins.ltr-property("margin", 20%, false);
+			@include ltr-property("margin", 20%, false);
 		}
 		&.is-offset-two-fifths-fullhd {
-			@include mixins.ltr-property("margin", 40%, false);
+			@include ltr-property("margin", 40%, false);
 		}
 		&.is-offset-three-fifths-fullhd {
-			@include mixins.ltr-property("margin", 60%, false);
+			@include ltr-property("margin", 60%, false);
 		}
 		&.is-offset-four-fifths-fullhd {
-			@include mixins.ltr-property("margin", 80%, false);
+			@include ltr-property("margin", 80%, false);
 		}
 		@for $i from 0 through 12 {
 			&.is-#{$i}-fullhd {
@@ -601,14 +600,14 @@ $column-gap: 0.75rem !default;
 				width: percentage(math.div($i, 12));
 			}
 			&.is-offset-#{$i}-fullhd {
-				@include mixins.ltr-property("margin", percentage(math.div($i, 12)), false);
+				@include ltr-property("margin", percentage(math.div($i, 12)), false);
 			}
 		}
 	}
 }
 .columns {
-	@include mixins.ltr-property("margin", (-$column-gap), false);
-	@include mixins.ltr-property("margin", (-$column-gap));
+	@include ltr-property("margin", (-$column-gap), false);
+	@include ltr-property("margin", (-$column-gap));
 	margin-top: (-$column-gap);
 	&:last-child {
 		margin-bottom: (-$column-gap);
@@ -620,8 +619,8 @@ $column-gap: 0.75rem !default;
 		justify-content: center;
 	}
 	&.is-gapless {
-		@include mixins.ltr-property("margin", 0, false);
-		@include mixins.ltr-property("margin", 0);
+		@include ltr-property("margin", 0, false);
+		@include ltr-property("margin", 0);
 		margin-top: 0;
 		& > .column {
 			margin: 0;
@@ -643,12 +642,12 @@ $column-gap: 0.75rem !default;
 	&.is-vcentered {
 		align-items: center;
 	}  // Responsiveness
-	@include mixins.tablet {
+	@include tablet {
 		&:not(.is-desktop) {
 			display: flex;
 		}
 	}
-	@include mixins.desktop {    // Modifiers
+	@include desktop {    // Modifiers
 		&.is-desktop {
 			display: flex;
 		}

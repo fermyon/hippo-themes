@@ -1,94 +1,121 @@
-@use '../helpers/themes';
-@use '../helpers/typography';
-@use "../utilities/mixins";
+@use '../utilities/all' as *;
 
+$card-color: $text !default;
+$card-background-color: $scheme-main !default;
 $card-radius: 0.25rem !default;
 
 $card-header-background-color: transparent !default;
+$card-header-color: $text-strong !default;
 $card-header-padding: 0.75rem 1rem !default;
-$card-header-weight: typography.$font-weight-bold !default;
+$card-header-weight: $font-weight-bold !default;
 
 $card-content-background-color: transparent !default;
 $card-content-padding: 1.5rem !default;
 
 $card-footer-background-color: transparent !default;
+$card-footer-border-top: 1px solid !default;
 $card-footer-padding: 0.75rem !default;
 
-$card-media-margin: 1.5rem !default;
+$card-media-margin: $block-spacing !default;
 
 .card {
-	@include themes.themed() {
-		background-color: themes.t(themes.$card-bg);
-	}
-	@include mixins.box-shadow;
-	@include mixins.border-radius($card-radius, $card-radius);
-	max-width: 100%;
-	position: relative;
-
-	@media (prefers-color-scheme: dark) {
-		outline: 1px solid #fff3;
-	}
+  @extend box-shadow;
+  @include themed {
+    background-color: t($card-background-color);
+    color: t($card-color);
+  }
+  border-radius: $card-radius;
+  max-width: 100%;
+  position: relative;
 }
-
-@mixin card-item {
-	&:first-child {
-		border-top-left-radius: $card-radius;
-		border-top-right-radius: $card-radius;
-	}
-	&:last-child {
-		border-bottom-left-radius: $card-radius;
-		border-bottom-right-radius: $card-radius;
-	}
+card-item {
+  &:first-child {
+    border-top-left-radius: $card-radius;
+    border-top-right-radius: $card-radius;
+  }
+  &:last-child {
+    border-bottom-left-radius: $card-radius;
+    border-bottom-right-radius: $card-radius;
+  }
 }
-
 .card-header {
-	@include card-item;
-	@include mixins.box-shadow;
-	@include themes.themed() {
-		background-color: themes.t(themes.$card-bg);
-	}
-	align-items: stretch;
-	display: flex;
+  @extend card-item;
+  background-color: $card-header-background-color;
+  align-items: stretch;
+  @include themed {
+    box-shadow: 0 0.125em 0.25em rgba(t($scheme-invert), 0.1);
+  }
+  display: flex;
 }
-
 .card-header-title {
-	@include themes.themed() {
-		color: themes.t(themes.$text-strong);
-	}
-	align-items: center;
-	display: flex;
-	flex-grow: 1;
-	font-weight: $card-header-weight;
-	padding: $card-header-padding;
-	&.is-centered {
-		justify-content: center;
-	}
+  align-items: center;
+  @include themed {
+    color: t($card-header-color);
+  }
+  display: flex;
+  flex-grow: 1;
+  font-weight: $card-header-weight;
+  padding: $card-header-padding;
+  &.is-centered {
+    justify-content: center;
+  }
 }
-
 .card-header-icon {
-	@include mixins.reset;
-	align-items: center;
-	cursor: pointer;
-	display: flex;
-	justify-content: center;
-	padding: $card-header-padding;
+  @include reset;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: $card-header-padding;
 }
-
 .card-image {
-	display: block;
-	position: relative;
-	&:first-child {
-		img {
-			border-top-left-radius: $card-radius;
-			border-top-right-radius: $card-radius;
-		}
-	}
-	&:last-child {
-		img {
-			border-bottom-left-radius: $card-radius;
-			border-bottom-right-radius: $card-radius;
-		}
-	}
+  display: block;
+  position: relative;
+  &:first-child {
+    img {
+      border-top-left-radius: $card-radius;
+      border-top-right-radius: $card-radius;
+    }
+  }
+  &:last-child {
+    img {
+      border-bottom-left-radius: $card-radius;
+      border-bottom-right-radius: $card-radius;
+    }
+  }
+}
+.card-content {
+  @extend card-item;
+  background-color: $card-content-background-color;
+  padding: $card-content-padding;
+}
+.card-footer {
+  @extend card-item;
+  background-color: $card-footer-background-color;
+  @include themed {
+    border-color: t($border-light);
+  }
+  border-top: $card-footer-border-top;
+  align-items: stretch;
+  display: flex;
+}
+.card-footer-item {
+  align-items: center;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: center;
+  padding: $card-footer-padding;
+  &:not(:last-child) {
+    @include ltr-property("border", $card-footer-border-top);
+  }
+// Combinations
+}
+.card {
+  .media:not(:last-child) {
+    margin-bottom: $card-media-margin;
+  }
 }
 
 .card-color-swatch {
@@ -97,48 +124,4 @@ $card-media-margin: 1.5rem !default;
 	border: none;
 	border-top-left-radius: $card-radius;
 	border-top-right-radius: $card-radius;
-}
-
-.card-content {
-	@include card-item;
-	@include themes.themed() {
-		background-color: themes.t(themes.$card-content-bg);
-	}
-	padding: $card-content-padding;
-
-	p {
-		margin: 0 0 -.333rem;
-	}
-}
-
-.card-footer {
-	@include card-item;
-	@include themes.themed() {
-		background-color: themes.t(themes.$card-bg);
-		border-top: 1px solid themes.t(themes.$card-border);
-	}
-	align-items: stretch;
-	display: flex;
-}
-
-.card-footer-item {
-	align-items: center;
-	display: flex;
-	flex-basis: 0;
-	flex-grow: 1;
-	flex-shrink: 0;
-	justify-content: center;
-	padding: $card-footer-padding;
-	&:not(:last-child) {
-		@include themes.themed() {
-			@include mixins.ltr-property("border", 1px solid themes.t(themes.$card-border));
-		}
-	}
-}
-
-// Combinations
-.card {
-	.media:not(:last-child) {
-		margin-bottom: $card-media-margin;
-	}
 }

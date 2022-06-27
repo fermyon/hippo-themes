@@ -1,149 +1,163 @@
-@use '../helpers/themes';
-@use '../utilities/functions';
-@use "../utilities/mixins";
+@use '../utilities/all' as *;
 
+$table-color: $text-strong !default;
+$table-background-color: $scheme-main !default;
+
+$table-cell-border: 1px solid $border !default;
 $table-cell-border-width: 0 0 1px !default;
 $table-cell-padding: 0.5em 0.75em !default;
-$table-cell-text-align: left !default;
+$table-cell-heading-color: $text-strong !default;
 
 $table-head-cell-border-width: 0 0 2px !default;
+$table-head-cell-color: $text-strong !default;
 $table-foot-cell-border-width: 2px 0 0 !default;
+$table-foot-cell-color: $text-strong !default;
 
 $table-head-background-color: transparent !default;
 $table-body-background-color: transparent !default;
 $table-foot-background-color: transparent !default;
 
-.table {
-	@include mixins.block;
-	td,
-	th {
-		border-width: $table-cell-border-width;
-		padding: $table-cell-padding;
-		vertical-align: top;
+$table-row-hover-background-color: $scheme-main !default;
 
-		@each $color in themes.$colors {
-			&.is-#{$color} {
-				@include themes.themed() {
-						background-color: themes.t($color);
-						border-color: themes.t($color);
-					}
-			}
-		}
-		&.is-narrow {
-			white-space: nowrap;
-			width: 1%;
-		}
-		&.is-selected {
-			@include themes.themed() {
-				background-color: themes.t(themes.$primary);
-				color: white;
-			}
-			a,
-			strong {
-				color: currentColor;
-			}
-		}
-		&.is-vcentered {
-			vertical-align: middle;
-		}
-	}
-	th {
-		@include themes.themed() {
-			background-color: themes.t(themes.$table-bg);
-		}
-		&:not([align]) {
-			text-align: $table-cell-text-align;
-		}
-	}
-	tr {
-		&:hover {
-			@include themes.themed() {
-				background-color: functions.tint(themes.t(themes.$table-bg), 25%);
-				color: white;
-			}
-		}
-		&.is-selected {
-			@include themes.themed() {
-				background-color: functions.tint(themes.t(themes.$table-bg), 25%);
-				color: white;
-			}
-			a,
-			strong {
-				color: currentColor;
-			}
-			td,
-			th {
-				@include themes.themed() {
-					border-color: themes.t(themes.$primary);
-				}
-				color: currentColor;
-			}
-		}
-	}
-	thead {
-		background-color: $table-head-background-color;
-		td,
-		th {
-			border-width: $table-head-cell-border-width;
-			color: white;
-		}
-	}
-	tfoot {
-		background-color: $table-foot-background-color;
-		td,
-		th {
-			border-width: $table-foot-cell-border-width;
-			color: white;
-		}
-	}
-	tbody {
-		background-color: $table-body-background-color;
-		tr {
-			&:last-child {
-				td,
-				th {
-					border-bottom-width: 0;
-				}  // Modifiers
-			}
-		}
-	}
-	&.is-bordered {
-		td,
-		th {
-			@include themes.themed() {
-				border: 1px solid themes.t(themes.$border);
-			}
-			border-width: 1px;
-		}
-		tr {
-			&:last-child {
-				td,
-				th {
-					border-bottom-width: 1px;
-				}
-			}
-		}
-	}
-	&.is-fullwidth {
-		width: 100%;
-	}
-	&.is-hoverable {
-		tbody {
-			tr:not(.is-selected) {
-			}
-		}
-	}
-	&.is-narrow {
-		td,
-		th {
-			padding: 0.25em 0.5em;
-		}
-	}
+$table-row-active-background-color: $primary !default;
+
+$table-colors: $colors !default;
+
+.table {
+  @extend block;
+  @include themed {
+    background-color: t($table-background-color);
+    color: t($table-color);
+  }
+  td,
+  th {
+    border: $table-cell-border;
+    border-width: $table-cell-border-width;
+    padding: $table-cell-padding;
+    vertical-align: top;
+    // Colors
+    @each $name in $table-colors {
+      @include themed {
+        $color: t($name);
+        $color-invert: findColorInvert($color);
+        &.is-#{$name} {
+          background-color: $color;
+          border-color: $color;
+          color: $color-invert;
+        }    // Modifiers
+      }
+    }
+    &.is-narrow {
+      white-space: nowrap;
+      width: 1%;
+    }
+    &.is-selected {
+      @include themed {
+        background-color: t($table-row-active-background-color);
+        color: findColorInvert(t($table-row-active-background-color));
+      }
+      a,
+      strong {
+        color: currentColor;
+      }
+    }
+    &.is-vcentered {
+      vertical-align: middle;
+    }
+  }
+  th {
+    @include themed {
+      color: t($table-cell-heading-color);
+    }
+    &:not([align]) {
+      text-align: inherit;
+    }
+  }
+  tr {
+    &.is-selected {
+      @include themed {
+        background-color: t($table-row-active-background-color);
+        color: findColorInvert(t($table-row-active-background-color));
+      }
+      a,
+      strong {
+        color: currentColor;
+      }
+      td,
+      th {
+        @include themed {
+          border-color: findColorInvert(t($table-row-active-background-color));
+        }
+        color: currentColor;
+      }
+    }
+  }
+  thead {
+    background-color: $table-head-background-color;
+    td,
+    th {
+      border-width: $table-head-cell-border-width;
+      color: $table-head-cell-color;
+    }
+  }
+  tfoot {
+    background-color: $table-foot-background-color;
+    td,
+    th {
+      border-width: $table-foot-cell-border-width;
+      color: $table-foot-cell-color;
+    }
+  }
+  tbody {
+    background-color: $table-body-background-color;
+    tr {
+      &:last-child {
+        td,
+        th {
+          border-bottom-width: 0;
+        }  // Modifiers
+      }
+    }
+  }
+  &.is-bordered {
+    td,
+    th {
+      border-width: 1px;
+    }
+    tr {
+      &:last-child {
+        td,
+        th {
+          border-bottom-width: 1px;
+        }
+      }
+    }
+  }
+  &.is-fullwidth {
+    width: 100%;
+  }
+  &.is-hoverable {
+    tbody {
+      tr:not(.is-selected) {
+        &:hover {
+          @include themed {
+            background-color: t($table-row-hover-background-color);
+          }
+        }
+      }
+    }
+  }
+  &.is-narrow {
+    td,
+    th {
+      padding: 0.25em 0.5em;
+    }
+  }
 }
 .table-container {
-	@include mixins.block;
-	-webkit-overflow-scrolling: touch;
-	overflow: auto;
-	overflow-y: hidden;
-	max-width: 100%;
+  @extend block;
+  @include overflow-touch;
+  overflow: auto;
+  overflow-y: hidden;
+  max-width: 100%;
 }

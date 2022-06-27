@@ -1,6 +1,6 @@
+@use 'colors';
+@use 'radius';
 @use 'responsive';
-@use '../base/colors';
-@use '../helpers/themes';
 
 $rtl: false !default;
 
@@ -8,13 +8,13 @@ $rtl: false !default;
 	transition: $property $duration $easing;
 }
 
-@mixin border-radius($radius1:0.375em, $radius2:0.375em) {
+@mixin border-radius($radius1:radius.$radius, $radius2:radius.$radius) {
 	-webkit-border-radius: $radius1 $radius2 $radius1 $radius2;
 	-moz-border-radius: $radius1 $radius2 $radius1 $radius2;
 	border-radius: $radius1 $radius2 $radius1 $radius2;
 }
 
-@mixin box-shadow($xlength:0, $ylength:0.1rem, $size:0, $color:rgba(30,30,30,0.25)) {
+@mixin box-shadow($xlength:0, $ylength:0.1rem, $size:0, $color:colors.$lightgray-dark) {
 	-webkit-box-shadow: $xlength $ylength $size $color;
 	-moz-box-shadow: $xlength $ylength $size $color;
 	box-shadow: $xlength $ylength $size $color;
@@ -224,7 +224,7 @@ $rtl: false !default;
 }
 
 @mixin breakpoint($name) {
-	$breakpoint: map-get($breakpoints, $name);
+	$breakpoint: map-get(responsive.$breakpoints, $name);
 	@if $breakpoint {
 		$from: map-get($breakpoint, "from");
 		$until: map-get($breakpoint, "until");
@@ -310,13 +310,13 @@ $rtl: false !default;
 
 @mixin delete {
 	@include unselectable;
-	@include border-radius;
 	-moz-appearance: none;
 	-webkit-appearance: none;
-	@include themes.themed() {
-		background-color: rgba(themes.t(themes.$bg), 0.2);
+	@include colors.themed() {
+		background-color: rgba(colors.t(colors.$scheme-main), 0.2);
 	}
 	border: none;
+	border-radius: radius.$radius-rounded;
 	cursor: pointer;
 	pointer-events: auto;
 	display: inline-block;
@@ -334,8 +334,8 @@ $rtl: false !default;
 	width: 20px;
 	&::before,
 	&::after {
-		@include themes.themed() {
-			background-color: themes.t(themes.$bg);
+		@include colors.themed() {
+			background-color: colors.t(colors.$scheme-main);
 		}
 		content: "";
 		display: block;
@@ -355,13 +355,13 @@ $rtl: false !default;
 	}
 	&:hover,
 	&:focus {
-		@include themes.themed() {
-			background-color: rgba(themes.t(themes.$bg), 0.3);
+		@include colors.themed() {
+			background-color: rgba(colors.t(colors.$scheme-main), 0.3);
 		}
 	}
 	&:active {
-		@include themes.themed() {
-			background-color: rgba(themes.t(themes.$bg), 0.4);
+		@include colors.themed() {
+			background-color: rgba(colors.t(colors.$scheme-main), 0.4);
 		}
 	}  // Sizes
 	&.is-small {
@@ -393,7 +393,7 @@ $rtl: false !default;
 @mixin loader {
 	animation: spinAround 500ms infinite linear;
 	border: 2px solid colors.$lightgray;
-	@include border-radius(9999px,9999px);
+	@include border-radius(radius.$radius-rounded, radius.$radius-rounded);
 	border-right-color: transparent;
 	border-top-color: transparent;
 	content: "";

@@ -1,8 +1,10 @@
-@use '../helpers/themes';
+@use '../utilities/all' as *;
+
+$footer-background-color: $scheme-main !default;
 
 .footer {
-    @include themes.themed() {
-        background-color: themes.t(themes.$bg);
+    @include themed {
+        background-color: t($footer-background-color);
     }
     padding: 3rem 1.5rem 6rem;
 }

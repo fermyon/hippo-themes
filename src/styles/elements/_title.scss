@@ -1,72 +1,83 @@
-@use '../base/colors';
-@use '../helpers/themes';
-@use '../helpers/typography';
-@use '../utilities/mixins';
+@use '../utilities/all' as *;
+
+$title-color: $text-strong !default;
+$title-family: false !default;
+$title-size: $font-size-3 !default;
+$title-weight: $font-weight-semibold !default;
+$title-line-height: 1.125 !default;
+$title-strong-color: inherit !default;
+$title-strong-weight: inherit !default;
+$title-sub-size: 0.75em !default;
+$title-sup-size: 0.75em !default;
+
+$subtitle-color: $text !default;
+$subtitle-family: false !default;
+$subtitle-size: $font-size-5 !default;
+$subtitle-weight: $font-weight-normal !default;
+$subtitle-line-height: 1.25 !default;
+$subtitle-strong-color: $text-strong !default;
+$subtitle-strong-weight: $font-weight-semibold !default;
+$subtitle-negative-margin: -1.25rem !default;
 
 .title,
 .subtitle {
-    @include mixins.block;
-    word-break: break-word;
-
-    em,
-    span {
-        font-weight: inherit;
-    }
-    em {
-        opacity: 0.33;
-        padding: 0 .2em;
-    }
-    sub {
-        font-size: typography.$font-size-small;
-    }
-    sup {
-        font-size: typography.$font-size-small;
-    }
-    .tag {
-        vertical-align: middle;
-    }
+  @extend block;
+  word-break: break-word;
+  em,
+  span {
+    font-weight: inherit;
+  }
+  sub {
+    font-size: $title-sub-size;
+  }
+  sup {
+    font-size: $title-sup-size;
+  }
+  .tag {
+    vertical-align: middle;
+  }
 }
-
 .title {
-    @include themes.themed() {
-        color: themes.t(themes.$text-strong);
+  color: $title-color;
+  @if $title-family {
+    font-family: $title-family;
+  }
+  font-size: $title-size;
+  font-weight: $title-weight;
+  line-height: $title-line-height;
+  strong {
+    color: $title-strong-color;
+    font-weight: $title-strong-weight;
+  }
+  &:not(.is-spaced) + .subtitle {
+    margin-top: $subtitle-negative-margin;
+  }  // Sizes
+  @each $font-size in $font-sizes {
+    $i: index($font-sizes, $font-size);
+    &.is-#{$i} {
+      font-size: $font-size;
     }
-    font-size: typography.$font-size-3;
-    font-weight: typography.$font-weight-semibold;
-    line-height: 1.125;
-    strong {
-        color: inherit;
-        font-weight: inherit;
-    }
-    &:not(.is-spaced) + .subtitle {
-        margin-top: -1.25rem;
-    }
-    @each $key, $val in typography.$font-sizes {
-        &.is-size-#{$key} {
-            font-size: $val;
-        }
-    }
+  }
 }
-
 .subtitle {
-    @include themes.themed() {
-        color: themes.t(themes.$text);
+  color: $subtitle-color;
+  @if $subtitle-family {
+    font-family: $subtitle-family;
+  }
+  font-size: $subtitle-size;
+  font-weight: $subtitle-weight;
+  line-height: $subtitle-line-height;
+  strong {
+    color: $subtitle-strong-color;
+    font-weight: $subtitle-strong-weight;
+  }
+  &:not(.is-spaced) + .title {
+    margin-top: $subtitle-negative-margin;
+  }  // Sizes
+  @each $font-size in $font-sizes {
+    $i: index($font-sizes, $font-size);
+    &.is-#{$i} {
+      font-size: $font-size;
     }
-    font-size: typography.$font-size-5;
-    font-weight: typography.$font-weight-normal;
-    line-height: 1.25;
-    strong {
-        @include themes.themed() {
-            color: themes.t(themes.$text);
-        }
-        font-weight: typography.$font-weight-semibold;
-    }
-    &:not(.is-spaced) + .subtitle {
-        margin-top: -1.25rem;
-    }
-    @each $key, $val in typography.$font-sizes {
-        &.is-size-#{$key} {
-            font-size: $val;
-        }
-    }
+  }
 }

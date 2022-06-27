@@ -11,3 +11,5 @@ $widescreen-enabled: true !default;
 $fullhd: 1344px + (2 * $gap) !default;
 $fullhd-enabled: true !default;
 $breakpoints: ("mobile": ("until": $tablet), "tablet": ("from": $tablet), "tablet-only": ("from": $tablet, "until": $desktop), "touch": ("from": $desktop), "desktop": ("from": $desktop), "desktop-only": ("from": $desktop, "until": $widescreen), "until-widescreen": ("until": $widescreen), "widescreen": ("from": $widescreen), "widescreen-only": ("from": $widescreen, "until": $fullhd), "until-fullhd": ("until": $fullhd), "fullhd": ("from": $fullhd)) !default;
+
+$speed: 86ms !default;

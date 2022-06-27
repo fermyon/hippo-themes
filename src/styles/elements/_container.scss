@@ -1,8 +1,7 @@
-@use '../utilities/responsive';
-@use '../utilities/mixins';
+@use '../utilities/all' as *;
 
-$container-offset: (2 * responsive.$gap) !default;
-$container-max-width: responsive.$fullhd !default;
+$container-offset: (2 * $gap) !default;
+$container-max-width: $fullhd !default;
 
 .container {
     flex-grow: 1;
@@ -12,36 +11,36 @@ $container-max-width: responsive.$fullhd !default;
 
     &:is-fluid {
         max-width: none !important;
-        padding-left: responsive.$gap;
-        padding-right: responsive.$gap;
+        padding-left: $gap;
+        padding-right: $gap;
         width: 100%;
     }
 
-    @include mixins.desktop {
-        max-width: responsive.$desktop - $container-offset;
+    @include desktop {
+        max-width: $desktop - $container-offset;
     }
 
-    @include mixins.until-widescreen {
+    @include until-widescreen {
         &.is-widescreen:not(.is-max-desktop) {
-            max-width: min(responsive.$widescreen, $container-max-width) - $container-offset;
+            max-width: min($widescreen, $container-max-width) - $container-offset;
         }
     }
 
-    @include mixins.until-fullhd {
+    @include until-fullhd {
         &.is-fullhd:not(.is-max-desktop):not(.is-max-widescreen) {
-            max-width: min(responsive.$fullhd, $container-max-width) - $container-offset;
+            max-width: min($fullhd, $container-max-width) - $container-offset;
         }
     }
 
-    @include mixins.widescreen {
+    @include widescreen {
         &:not(.is-max-desktop) {
-            max-width: min(responsive.$widescreen, $container-max-width) - $container-offset;
+            max-width: min($widescreen, $container-max-width) - $container-offset;
         }
     }
 
-    @include mixins.fullhd {
+    @include fullhd {
         &:not(.is-max-desktop):not(.is-max-widescreen) {
-            max-width: min(responsive.$fullhd, $container-max-width) - $container-offset;
+            max-width: min($fullhd, $container-max-width) - $container-offset;
         }
     }
 }
