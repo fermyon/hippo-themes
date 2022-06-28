@@ -5,6 +5,8 @@ $render-mode: optimizeLegibility !default;
 $body-font-size: 1em !default;
 $body-line-height: 1.5 !default;
 $body-weight: $font-weight-normal !default;
+$body-overflow-x: hidden !default;
+$body-overflow-y: scroll !default;
 
 $hr-background-color: $border !default;
 $hr-height: 2px !default;
@@ -15,6 +17,8 @@ html {
 	font-size: $body-font-size;
 	text-rendering: $render-mode;
 	-webkit-font-smoothing: antialiased;
+	overflow-x: $body-overflow-x;
+	overflow-y: $body-overflow-y;
 }
 
 article,
