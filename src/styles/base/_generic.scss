@@ -6,6 +6,11 @@ $body-font-size: 1em !default;
 $body-line-height: 1.5 !default;
 $body-weight: $font-weight-normal !default;
 
+$hr-background-color: $border !default;
+$hr-height: 2px !default;
+$hr-margin: 1.5rem 0 !default;
+
+
 html {
 	font-size: $body-font-size;
 	text-rendering: $render-mode;
@@ -38,14 +43,33 @@ code,
 pre {
 	-webkit-font-smoothing: auto;
 	font-family: $font-family-mono;
-}
-
-code,
-pre {
-	font-family: $font-family-mono;
 	font-size: $font-size-6;
 	max-width: 100%;
 	overflow-x: auto;
+}
+
+code {
+	@include themed {
+		background-color: t($code-background);
+		color: t($code);
+	}
+}
+
+pre {
+	@include themed {
+		background-color: t($pre-background);
+		color: t($pre);
+	}
+}
+
+hr {
+	@include themed {
+		background-color: t($hr-background-color);
+	}
+  border: none;
+  display: block;
+  height: $hr-height;
+  margin: $hr-margin;
 }
 
 img {
@@ -74,41 +98,6 @@ th {
 	}
 }
 
-a {
-	@include themed {
-		color: t($link);
-	}
-
-	cursor: pointer;
-	text-decoration: none;
-	position: relative;
-	@extend border-radius;
-
-	&:hover {
-		&:after {
-			opacity: 1;
-			left: 5%;
-			right: 5%;
-		}
-	}
-
-	&:after {
-		position: absolute;
-		text-align: center;
-		@include themed {
-			color: t($link-visited);
-		}
-		content: " ";
-		height: 0.125rem;
-		bottom: -0.2rem;
-		display: inline-block;
-		opacity: 0;
-		left: 33%;
-		right: 33%;
-		@include transition;
-	}
-}
-
 section {
 	max-width: 48.5rem;
 	margin-left: auto;
@@ -117,3 +106,16 @@ section {
 	padding-bottom: 7.5rem;
 }
 
+a {
+	@include themed {
+		color: t($link);
+		&:hover {
+			background-color: t($link-hover);
+		}
+	}
+	cursor: pointer;
+	text-decoration: none;
+	strong {
+		color: currentColor;
+	}
+}

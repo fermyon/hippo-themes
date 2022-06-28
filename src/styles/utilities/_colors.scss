@@ -162,16 +162,20 @@ $link-active: 'link-active';
 $shadow: 'shadow';
 
 $border: 'border';
+$border-strong: 'border-strong';
 $border-hover: 'border-hover';
 $border-light: 'border-light';
 $border-light-hover: 'border-light-hover';
+
+$external-link-border: 'external-link-border';
+$external-link-hover: 'external-link-hover';
+$external-link-hover-background: 'external-link-hover-background';
 
 $button-background: 'button-background';
 $card-background: 'card-background';
 $card-content-background: 'card-content-background';
 $card-border: 'card-border';
 $message-background: 'message-background';
-$table-background: 'table-background';
 $tag-background: 'tag-background';
 $tag-text: 'tag-text';
 $menu-label: 'menu-label';
@@ -192,29 +196,32 @@ $themes: (
 		text-light: $oxfordblue-xlight,
 		text-strong: $oxfordblue-xdark,
 		logo: $oxfordblue,
-		code: $oxfordblue,
-		code-background: $darkplum-light,
-		pre: $oxfordblue,
-		pre-background: white,
+		code: $midblue,
+		code-background: $lightlavender,
+		pre: $lavender,
+		pre-background: $oxfordblue,
 		link-invert: functions.findColorInvert($colablue-dark),
 		link-light: $colablue-light,
 		link-dark: $colablue-xdark,
 		link-visited: $colablue-xdark,
-		link-hover: black,
-		link-focus: black,
-		link-active: black,
+		link-hover: $lightlavender-light,
+		link-focus: $lightlavender,
+		link-active: $lightlavender,
 		shadow: $lightgray-dark,
 		background: $lightlavender-xlight,
-		border: white,
+		border: $lightgray,
+		border-strong: $lavender,
 		border-hover: $lightgray-dark,
 		border-light: $lightgray-xlight,
 		border-light-hover: $lightgray-light,
+		external-link-border: $seagreen,
+		external-link-hover: white,
+		external-link-hover-background: $seagreen,
 		button-background: white,
 		card-background: $lightlavender-xlight,
 		card-content-background: white,
 		card-border: $lightlavender,
 		message-background: $darkplum-light,
-		table-background: $darkplum-light,
 		tag-background: $seagreen-xlight,
 		tag-text: $oxfordblue,
 		menu-label: gray,
@@ -226,14 +233,14 @@ $themes: (
 		success: $midgreen-dark,
 		warning: $rust,
 		danger: $rust-dark,
-		scheme-main: $oxfordblue,
+		scheme-main: $oxfordblue-light,
 		scheme-invert: functions.findColorInvert($oxfordblue),
 		text: white,
 		text-invert: functions.findColorInvert(white),
 		text-light: $lightlavender-xlight,
-		text-strong: $seagreen,
+		text-strong: white,
 		logo: white,
-		code: white,
+		code: $lavender-light,
 		code-background: $oxfordblue-dark,
 		pre: white,
 		pre-background: $oxfordblue-dark,
@@ -245,17 +252,20 @@ $themes: (
 		link-focus: $darkspace,
 		link-active: $darkspace,
 		shadow: rgba(30,30,30,0.25),
-		background: $oxfordblue-xlight,
-		border: $lightgray,
+		background: $oxfordblue,
+		border: $darkocean,
+		border-strong: $lavender-dark,
 		border-hover: $lightgray-dark,
 		border-light: $lightgray-xlight,
 		border-light-hover: $lightgray-light,
+		external-link-border: $seagreen,
+		external-link-hover: $seagreen,
+		external-link-hover-background: $oxfordblue-xlight,
 		button-background: white,
 		card-background: $oxfordblue-light,
 		card-content-background: $oxfordblue-light,
 		card-border: $oxfordblue-dark,
 		message-background: $darkplum-light,
-		table-background: $darkplum-light,
 		tag-background: $darkspace,
 		tag-text: $lavender,
 		menu-label: white,

@@ -19,15 +19,18 @@ $card-footer-padding: 0.75rem !default;
 $card-media-margin: $block-spacing !default;
 
 .card {
-  @extend box-shadow;
   @include themed {
     background-color: t($card-background-color);
     color: t($card-color);
   }
+  box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),
+              0 0    0   1px     rgba(10,10,10,.02);
+  outline: 1px solid rgba(255,255,255,0.2);
   border-radius: $card-radius;
   max-width: 100%;
   position: relative;
 }
+
 card-item {
   &:first-child {
     border-top-left-radius: $card-radius;
@@ -38,6 +41,7 @@ card-item {
     border-bottom-right-radius: $card-radius;
   }
 }
+
 .card-header {
   @extend card-item;
   background-color: $card-header-background-color;
@@ -47,6 +51,7 @@ card-item {
   }
   display: flex;
 }
+
 .card-header-title {
   align-items: center;
   @include themed {
@@ -60,6 +65,7 @@ card-item {
     justify-content: center;
   }
 }
+
 .card-header-icon {
   @include reset;
   align-items: center;
@@ -68,6 +74,7 @@ card-item {
   justify-content: center;
   padding: $card-header-padding;
 }
+
 .card-image {
   display: block;
   position: relative;
@@ -84,11 +91,22 @@ card-item {
     }
   }
 }
+
 .card-content {
   @extend card-item;
   background-color: $card-content-background-color;
   padding: $card-content-padding;
+
+  p {
+    em {
+      opacity: 0.333;
+      padding-right: .2em;
+      font-style: normal;
+      font-family: $font-family-mono;
+    }
+  }
 }
+
 .card-footer {
   @extend card-item;
   background-color: $card-footer-background-color;
@@ -110,8 +128,9 @@ card-item {
   &:not(:last-child) {
     @include ltr-property("border", $card-footer-border-top);
   }
-// Combinations
 }
+
+// Combinations
 .card {
   .media:not(:last-child) {
     margin-bottom: $card-media-margin;
@@ -124,4 +143,12 @@ card-item {
 	border: none;
 	border-top-left-radius: $card-radius;
 	border-top-right-radius: $card-radius;
+}
+
+// dark mode
+@media (prefers-color-scheme: dark) {
+  .card {
+    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.5),
+                0 0    0   1px     rgba(10,10,10,.52);
+  }
 }

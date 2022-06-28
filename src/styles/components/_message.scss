@@ -34,7 +34,8 @@ $message-colors: $colors !default;
   a:not(.button):not(.tag):not(.dropdown-item) {
     color: currentColor;
     text-decoration: underline;
-  }  // Sizes
+  }
+  // Sizes
   &.is-small {
     font-size: $font-size-small;
   }
@@ -43,7 +44,8 @@ $message-colors: $colors !default;
   }
   &.is-large {
     font-size: $font-size-large;
-  }  // Colors
+  }
+  // Colors
   @each $name in $message-colors {
     @include themed {
       $color: t($name);

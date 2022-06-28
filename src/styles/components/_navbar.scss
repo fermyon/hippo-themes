@@ -276,10 +276,10 @@ a.navbar-item,
       @include themed {
         background-color: t($navbar-tab-active-background-color);
         border-bottom-color: t($navbar-tab-active-border-bottom-color);
+        color: t($navbar-tab-active-color);
       }
       border-bottom-style: $navbar-tab-active-border-bottom-style;
       border-bottom-width: $navbar-tab-active-border-bottom-width;
-      color: $navbar-tab-active-color;
       padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width});
     }
   }
@@ -346,8 +346,9 @@ a.navbar-item,
     padding: 0.5rem 0;
     &.is-active {
       display: block;
-    }  // Fixed navbar
+    }
   }
+  // Fixed navbar
   .navbar {
     &.is-fixed-bottom-touch,
     &.is-fixed-top-touch {
@@ -561,8 +562,9 @@ a.navbar-item,
     }
     .navbar-menu {
       @include ltr-property("margin", -.75rem);
-    }  // Fixed navbar
+    }
   }
+  // Fixed navbar
   .navbar {
     &.is-fixed-bottom-desktop,
     &.is-fixed-top-desktop {
@@ -593,8 +595,9 @@ a.navbar-item,
     }
     &.has-spaced-navbar-fixed-bottom {
       padding-bottom: $navbar-height + ($navbar-padding-vertical * 2);
-    }  // Hover/Active states
+    }
   }
+  // Hover/Active states
   a.navbar-item,
   .navbar-link {
     &.is-active {
@@ -617,10 +620,10 @@ a.navbar-item,
           background-color: t($navbar-item-hover-background-color);
         }
       }
-// Combination
     }
   }
 }
+// Combination
 .hero {
   &.is-fullheight-with-navbar {
     min-height: calc(100vh - #{$navbar-height});

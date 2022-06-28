@@ -8,7 +8,6 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
 	<script type="module" src="js/index.js"></script>
 	<script src="//cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
 </head>
 <body>
 	<nav class="navbar" role="navigation" aria-label="main navigation">
@@ -28,7 +27,7 @@
 		</div>
 	</nav>
 	<div class="columns section">
-		<div class="column is-one-fifth">
+		<div class="column is-narrow">
 
 			<aside class="menu">
 
@@ -103,8 +102,8 @@
 					A visual reference manual<br>
 					for <a href="https://www.fermyon.com">Fermyon</a> related materials.
 					<br><br>
-					<code class="copy is-size-2 is-rounded" style="padding-right: 2rem; margin-left: 0; font-weight: 500;" data-clipboard-target="#npminstall">
-						<span id="npminstall">npm install --save @fermyon/styleguide</span>
+					<code class="copy is-size-2 is-rounded" style="padding-left: 0.5rem; padding-right: 2rem; margin-left: 0; font-weight: 500;" data-clipboard-target="#npminstall">
+						<span>$ </span><span id="npminstall">npm install --save @fermyon/styleguide</span>
 					</code>
 				</h2>
 			</section>
@@ -142,12 +141,11 @@
 
 					<div class="column is-half">
 						<pre class="is-pulled-right">
-							Color Reference:
-							----------------
-							<a href="https://github.com/fermyon/styleguide/blob/main/scss/fermyon-color.scss">Sass</a> $variable
-							Hex #color value
-							RGB (color) value
-						</pre>
+Color Reference:
+----------------
+<a href="https://github.com/fermyon/styleguide/blob/main/scss/fermyon-color.scss">Sass</a> $variable
+Hex #color value
+RGB (color) value</pre>
 					</div>
 				</div>
 
@@ -375,11 +373,9 @@
 
 				<p>To reduce the size of assets being served, it's best to leverage a CDN where possible. Hence the Styleguide does not contain the bundled up webfont files alongside the images and other assets.</p>
 
-				<pre>
-					&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
-					&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
-					&lt;link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet"&gt;
-				</pre>
+				<pre>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Sen:wght@400;700&display=swap" rel="stylesheet"&gt;</pre>
 
 				<h2>Font Fallbacks</h2>
 
@@ -387,9 +383,7 @@
 
 				<p>The styleguide font stack defines a number of more common fallback options that are typically installed as defaults on standard devices OS:</p>
 
-				<pre>
-					Sen, Europa, Avenir, system, -apple-system, ".SFNSText-Regular", "San Francisco", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-				</pre>
+				<pre>Sen, Europa, Avenir, system, -apple-system, ".SFNSText-Regular", "San Francisco", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;</pre>
 
 				<p>Learn more about <a href="https://css-tricks.com/css-basics-fallback-font-stacks-robust-web-typography/">Fallback Font Stacks</a> here. If a closer substitution is required, seek out other <a href="https://www.typewolf.com/top-10-humanist-sans-serif-fonts">Humanist Sans</a> and <a href="https://www.fontshop.com/content/short-intro-to-geometric-sans">Geometric Sans</a> options (Futura, Europa, Avenir are some well-established ones, but have different levels of licensing requirements).</p>
 
@@ -399,7 +393,7 @@
 					<div class="column is-one-third">
 						<p>Refer to the <a href="#ui"><strong>User Interfaces</strong></a> section for examples of the different text formatting styles contained within the styleguide.</p>
 					</div>
-					<div class="column is-half is-pulled-right box">
+					<div class="column is-half box">
 						<h1>h1 Header</h1>
 						<h2>h2 Title</h2>
 						<h3>h3 Sub Title</h3>
@@ -433,68 +427,60 @@
 
 				<p>Displaying legibile, easily parsable chunks of code is very important in our work - in blog posts, docs, etc. Typically we use a <code>monospaced</code> font stack, well-spaced lines and additional syntax highlighting via <a href="https://github.com/highlightjs/highlight.js/">Highlight.js</a></p>
 
-				<pre><code>SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace</code></pre>
+				<pre>SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier, monospace</pre>
 
 				<h4>Code Examples:</h4>
 
 				<p>Bash Example</p>
 
-				<pre>
-					<code class="language-console hljs language-shell">
-						<span class="hljs-meta">$ </span><span class="language-bash">spin templates install --git https://github.com/fermyon/spin --branch v0.2.0</span>
-						Copying remote template source
-						Installing template redis-rust...
-						Installing template http-rust...
-						Installing template http-go...
-						+--------------------------------------------------+
-						| Name         Description                         |
-						+==================================================+
-						| http-go      HTTP request handler using (Tiny)Go |
-						| http-rust    HTTP request handler using Rust     |
-						| redis-rust   Redis message handler using Rust    |
-						| ...                                              |
-						+--------------------------------------------------+
-					</code>
-				</pre>
+				<pre><code class="language-console hljs language-shell"><span class="hljs-meta">$ </span><span class="language-bash">spin templates install --git https://github.com/fermyon/spin --branch v0.2.0</span>
+Copying remote template source
+Installing template redis-rust...
+Installing template http-rust...
+Installing template http-go...
++--------------------------------------------------+
+| Name         Description                         |
++==================================================+
+| http-go      HTTP request handler using (Tiny)Go |
+| http-rust    HTTP request handler using Rust     |
+| redis-rust   Redis message handler using Rust    |
+| ...                                              |
++--------------------------------------------------+</code></pre>
 
 				<p>TOML Example</p>
 
-				<pre>
-					<code class="language-toml hljs language-ini"><span class="hljs-attr">spin_version</span> = <span class="hljs-string">"1"</span>
-						<span class="hljs-attr">description</span> = <span class="hljs-string">"A simple Spin HTTP component in Rust"</span>
-						<span class="hljs-attr">name</span> = <span class="hljs-string">"spin-hello-world"</span>
-						<span class="hljs-attr">trigger</span> = { type = <span class="hljs-string">"http"</span>, base = <span class="hljs-string">"/"</span> }
-						<span class="hljs-attr">version</span> = <span class="hljs-string">"0.1.0"</span>
+				<pre><code class="language-toml hljs language-ini"><span class="hljs-attr">spin_version</span> = <span class="hljs-string">"1"</span>
+<span class="hljs-attr">description</span> = <span class="hljs-string">"A simple Spin HTTP component in Rust"</span>
+<span class="hljs-attr">name</span> = <span class="hljs-string">"spin-hello-world"</span>
+<span class="hljs-attr">trigger</span> = { type = <span class="hljs-string">"http"</span>, base = <span class="hljs-string">"/"</span> }
+<span class="hljs-attr">version</span> = <span class="hljs-string">"0.1.0"</span>
 
-						<span class="hljs-section">[[component]]</span>
-						<span class="hljs-attr">id</span> = <span class="hljs-string">"spin-hello-world"</span>
-						<span class="hljs-attr">source</span> = <span class="hljs-string">"target/wasm32-wasi/release/spin_hello_world.wasm"</span>
-						<span class="hljs-section">[component.trigger]</span>
-						<span class="hljs-attr">route</span> = <span class="hljs-string">"/hello"</span>
-						<span class="hljs-section">[component.build]</span>
-						<span class="hljs-attr">command</span> = <span class="hljs-string">"cargo build --target wasm32-wasi --release"</span>
-					</code>
-				</pre>
+<span class="hljs-section">[[component]]</span>
+<span class="hljs-attr">id</span> = <span class="hljs-string">"spin-hello-world"</span>
+<span class="hljs-attr">source</span> = <span class="hljs-string">"target/wasm32-wasi/release/spin_hello_world.wasm"</span>
+<span class="hljs-section">[component.trigger]</span>
+<span class="hljs-attr">route</span> = <span class="hljs-string">"/hello"</span>
+<span class="hljs-section">[component.build]</span>
+<span class="hljs-attr">command</span> = <span class="hljs-string">"cargo build --target wasm32-wasi --release"</span></code></pre>
+
 				<p>Rust Example</p>
 
-				<pre>
-					<code class="language-rust hljs"><span class="hljs-keyword">use</span> anyhow::<span class="hljs-type">Result</span>;
-						<span class="hljs-keyword">use</span> spin_sdk::{
-							http::{Request, Response},
-							http_component,
-						};
+				<pre><code class="language-rust hljs"><span class="hljs-keyword">use</span> anyhow::<span class="hljs-type">Result</span>;
+<span class="hljs-keyword">use</span> spin_sdk::{
+	http::{Request, Response},
+	http_component,
+};
 
-						<span class="hljs-comment">/// A simple Spin HTTP component.</span>
-						<span class="hljs-meta">#[http_component]</span>
-						<span class="hljs-keyword">fn</span> <span class="hljs-title function_">spin_hello_world</span>(req: Request) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;Response&gt; {
-							<span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, req.<span class="hljs-title function_ invoke__">headers</span>());
-							<span class="hljs-title function_ invoke__">Ok</span>(http::Response::<span class="hljs-title function_ invoke__">builder</span>()
-							.<span class="hljs-title function_ invoke__">status</span>(<span class="hljs-number">200</span>)
-							.<span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>)
-							.<span class="hljs-title function_ invoke__">body</span>(<span class="hljs-title function_ invoke__">Some</span>(<span class="hljs-string">"Hello, Fermyon"</span>.<span class="hljs-title function_ invoke__">into</span>()))?)
-						}
-					</code>
-				</pre>
+<span class="hljs-comment">/// A simple Spin HTTP component.</span>
+<span class="hljs-meta">#[http_component]</span>
+<span class="hljs-keyword">fn</span> <span class="hljs-title function_">spin_hello_world</span>(req: Request) <span class="hljs-punctuation">-&gt;</span> <span class="hljs-type">Result</span>&lt;Response&gt; {
+	<span class="hljs-built_in">println!</span>(<span class="hljs-string">"{:?}"</span>, req.<span class="hljs-title function_ invoke__">headers</span>());
+	<span class="hljs-title function_ invoke__">Ok</span>(http::Response::<span class="hljs-title function_ invoke__">builder</span>()
+	.<span class="hljs-title function_ invoke__">status</span>(<span class="hljs-number">200</span>)
+	.<span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">"foo"</span>, <span class="hljs-string">"bar"</span>)
+	.<span class="hljs-title function_ invoke__">body</span>(<span class="hljs-title function_ invoke__">Some</span>(<span class="hljs-string">"Hello, Fermyon"</span>.<span class="hljs-title function_ invoke__">into</span>()))?)
+}</code></pre>
+
 			</section>
 
 
@@ -511,7 +497,7 @@
 
 				<h3>Files &amp; Formats</h3>
 
-				<table>
+				<table class="table">
 					<tr>
 						<td>
 							<p><img src="images/logo.svg" alt="Fermyon Logo" style="max-height: 3rem; margin:1rem 0 1rem 2rem;" /></p>
@@ -550,10 +536,10 @@
 				<br>
 				<h3>The Doorway Icon</h3>
 
-				<table>
+				<table class="table">
 					<tr>
 						<td>
-							<p><img src="images/logo-badge.png" alt="Fermyon Doorway Logo" style="max-height: 7.5rem; margin:1rem 0 1rem 2rem;" /></p>
+							<p><img class="image" src="images/logo-badge.png" alt="Fermyon Doorway Logo" style="max-height: 7.5rem; margin:1rem 0 1rem 2rem;" /></p>
 						</td>
 						<td>
 							<br>The "badgified" variant of our logo
@@ -567,7 +553,7 @@
 
 				<p class="box">
 					<br>
-					<img src="https://user-images.githubusercontent.com/686194/158033675-3df36c82-f9da-42c0-b4f3-e6b5979c3495.png" alt="Logo Lockup Combinations" />
+					<img class="image" src="https://user-images.githubusercontent.com/686194/158033675-3df36c82-f9da-42c0-b4f3-e6b5979c3495.png" alt="Logo Lockup Combinations" />
 				</p>
 			</section>
 
@@ -578,38 +564,38 @@
 
 				<p>Examples of how to use the Fermyon brand styles to create illustrations like these:</p>
 
-				<p><img src="https://user-images.githubusercontent.com/686194/158032613-b747fdb0-261a-4c38-90d1-76d799c637ed.png" alt="Fermyon Illustration" /></p>
+				<p><img class="image" src="https://user-images.githubusercontent.com/686194/158032613-b747fdb0-261a-4c38-90d1-76d799c637ed.png" alt="Fermyon Illustration" /></p>
 
 				<p><small><em>Decoration from the footer of fermyon.com version 1.</em></small></p>
 
-				<p><img src="https://user-images.githubusercontent.com/686194/158032619-9c94fecc-8f7c-4530-92a7-6a83b7bd661b.png" alt="Fermyon Illustration" /></p>
+				<p><img class="image" src="https://user-images.githubusercontent.com/686194/158032619-9c94fecc-8f7c-4530-92a7-6a83b7bd661b.png" alt="Fermyon Illustration" /></p>
 
 				<p><small><em>"infra-spaghetti" from the homepage of fermyon.com version 1.</em></small></p>
 
 				<h3>Technology Illustrations</h3>
 
-				<table class="is-bordered is-striped">
+				<table class="table">
 					<tr>
 						<td>
-							<img src="https://user-images.githubusercontent.com/686194/158032617-15c3611b-0542-4912-88c8-3dbf674df46f.png"  alt="Wasm Icons" />
+							<img class="image" src="https://user-images.githubusercontent.com/686194/158032617-15c3611b-0542-4912-88c8-3dbf674df46f.png"  alt="Wasm Icons" />
 						</td>
 						<td>
-							<img src="https://user-images.githubusercontent.com/686194/158032618-833fbaa2-fa5b-4a13-94f4-c9c87d0ad052.png"  alt="Wasm Icons" />
+							<img class="image" src="https://user-images.githubusercontent.com/686194/158032618-833fbaa2-fa5b-4a13-94f4-c9c87d0ad052.png"  alt="Wasm Icons" />
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
-							<img src="https://user-images.githubusercontent.com/686194/158032616-4cea6494-4dd8-403b-9c2f-a4057939889f.png" alt="Wasm Icons">
+							<img class="image" src="https://user-images.githubusercontent.com/686194/158032616-4cea6494-4dd8-403b-9c2f-a4057939889f.png" alt="Wasm Icons">
 						</td>
 					</tr>
 				</table>
 
 				<h3>Icons</h3>
 
-				<table class="is-bordered is-striped">
+				<table class="table">
 					<tr>
 						<td>
-							<img src="https://user-images.githubusercontent.com/686194/158032612-f46fd758-8be0-44f4-93e9-b3ad83a754e9.png" alt="Bindle" style="width: 5rem;">
+							<img class="image" src="https://user-images.githubusercontent.com/686194/158032612-f46fd758-8be0-44f4-93e9-b3ad83a754e9.png" alt="Bindle" style="width: 5rem;">
 						</td>
 						<td><a href="https://github.com/deislabs/bindle/">Bindle</a>: Bindle: Object Storage for Collections </td>
 					</tr>
@@ -625,11 +611,11 @@
 
 				<p>Some examples of common Dos &amp; Don'ts:</p>
 
-				<p class="box"><img src="https://user-images.githubusercontent.com/686194/158033684-ca7a7fbc-444c-409f-8ee4-b5f405feec84.png" alt="Don't make things the same size" /></p>
+				<p class="box"><img class="image" src="https://user-images.githubusercontent.com/686194/158033684-ca7a7fbc-444c-409f-8ee4-b5f405feec84.png" alt="Don't make things the same size" /></p>
 
 				<p><small>Tips on choosing the right logo for the right setting.</small></p>
 
-				<p class="box"><img src="https://user-images.githubusercontent.com/686194/158033682-415fadad-111d-49e6-a3cb-a1a8451ee221.png" style="margin-left: 2rem;" alt="Don't make things the same size" /></p>
+				<p class="box"><img class="image" src="https://user-images.githubusercontent.com/686194/158033682-415fadad-111d-49e6-a3cb-a1a8451ee221.png" alt="Don't make things the same size" /></p>
 
 				<p><small>Don't put the F inline like this.</small></p>
 
@@ -642,20 +628,6 @@
 				<p><img src="images/twitter_card_website.png" alt="A Fermyon Twitter Card" /></p>
 
 				<p><small>When combining the wordmark with other content &mdash; The scaling of the logo and the text should be <em>similar</em>. Otherwise, the logo is overbearing.</small></p>
-
-				<hr class="hr page-break">
-			</section>
-
-			<section id="layouts">
-				<h1>Layouts</h1>
-
-				<p>Examples of Fermyon-styled starter layouts:</p>
-
-				<br>
-
-				<aside>
-					<p>It's also worth looking at the many useful Bulma <a href="https://bulmatemplates.github.io/bulma-templates/">layout templates available here</a>, as well as Luc Perkins' <a href="https://github.com/lucperkins/bulma-dashboard">bulma-dashboard</a> project.</p>
-				</aside>
 
 				<hr class="hr page-break">
 			</section>
@@ -715,22 +687,31 @@
 
 				<p>Buttons have many different states of interaction, and can have different styles depending on their role. By default, Hippo buttons should be rounded and use the <code>is-normal</code> sizing.</p>
 
-				<p>
-					<button class="button is-rounded">Rounded</button>
-					<button class="button is-primary is-rounded">Rounded</button>
-					<button class="button is-secondary is-rounded">Rounded</button>
-					<button class="button is-info is-rounded">Rounded</button>
-					<button class="button is-success is-rounded">Rounded</button>
-					<button class="button is-danger is-rounded">Rounded</button>
-				</p>
+				<p>Rounded:</p>
 
-				<p>
-					<button class="button is-small">Small</button>
-					<button class="button">Default</button>
-					<button class="button is-normal">Normal</button>
-					<button class="button is-medium">Medium</button>
-					<button class="button is-medium">Large</button>
-				</p>
+				<button class="button is-rounded">Rounded</button>
+				<button class="button is-primary is-rounded">Rounded</button>
+				<button class="button is-secondary is-rounded">Rounded</button>
+				<button class="button is-info is-rounded">Rounded</button>
+				<button class="button is-success is-rounded">Rounded</button>
+				<button class="button is-danger is-rounded">Rounded</button>
+
+				<p>Sizes:</p>
+
+				<button class="button is-small">Small</button>
+				<button class="button">Default</button>
+				<button class="button is-normal">Normal</button>
+				<button class="button is-medium">Medium</button>
+				<button class="button is-medium">Large</button>
+
+				<p>Light:</p>
+
+				<button class="button is-primary is-light">Lightened</button>
+				<button class="button is-link is-light">Lightened</button>
+				<button class="button is-info is-light">Lightened</button>
+				<button class="button is-success is-light">Lightened</button>
+				<button class="button is-warning is-light">Lightened</button>
+				<button class="button is-danger is-light">Lightened</button>
 
 				<p>Squared buttons:</p>
 
@@ -902,26 +883,24 @@
 
 				<p>As <a href="https://www.fermyon.com/jobs/index">a fully remote company</a>, Slack plays a central role in our work. To decorate the workspace appropriately, here are some Fermyon themes to suit your daytime or nighttime viewing preference:</p>
 
-				<div class="columns is-multiline">
-					<div class="column box">
-						<h4 class="title is-5">Light Theme</h4>
+				<div class="box">
+					<h4 class="title is-5">Light Theme</h4>
 
-						<img class="image" src="https://user-images.githubusercontent.com/686194/158027354-f2d33b1e-509c-419e-a71e-799e8dea2340.jpg" alt="Light Theme Preview">
+					<img class="image" src="https://user-images.githubusercontent.com/686194/158027354-f2d33b1e-509c-419e-a71e-799e8dea2340.jpg" alt="Light Theme Preview">
 
-						<small>Copy and paste these values to share your Slack settings Sidebar Theme section:</small>
+					<small>Copy and paste these values to share your Slack settings Sidebar Theme section:</small>
 
-						<pre>#F8F4F9,#34E8BD,#0D203F,#34E8BD,#D9DBE8,#0D203F,#34E8BD,#EF946C,#ECEDF4,#0D203F</pre>
-					</div>
+					<pre>#F8F4F9,#34E8BD,#0D203F,#34E8BD,#D9DBE8,#0D203F,#34E8BD,#EF946C,#ECEDF4,#0D203F</pre>
+				</div>
 
-					<div class="column box">
-						<h4 class="title is-5">Dark Theme</h4>
+				<div class="box">
+					<h4 class="title is-5">Dark Theme</h4>
 
-						<img class="image" src="https://user-images.githubusercontent.com/686194/158027357-f7a44920-8500-47d2-b1d6-a39b465eb53a.jpg" alt="Dark Theme Preview">
+					<img class="image" src="https://user-images.githubusercontent.com/686194/158027357-f7a44920-8500-47d2-b1d6-a39b465eb53a.jpg" alt="Dark Theme Preview">
 
-						<small>Copy and paste these values to share your Slack settings Sidebar Theme section:</small>
+					<small>Copy and paste these values to share your Slack settings Sidebar Theme section:</small>
 
-						<pre>#0D203F,#34E8BD,#0A191F,#34E8BD,#0A191F,#BEA7E5,#34E8BD,#EF946C,#0D203F,#0D203F</pre>
-					</div>
+					<pre>#0D203F,#34E8BD,#0A191F,#34E8BD,#0A191F,#BEA7E5,#34E8BD,#EF946C,#0D203F,#0D203F</pre>
 				</div>
 
 				<p>Visit <a href="https://get.slack.help/hc/en-us/articles/205166337-Customizing-your-Slack-theme">Customizing Your Slack Theme</a> for further instructions on custom themes.</p>
@@ -1004,7 +983,5 @@
 		</div>
 	</div>
 </body>
-<script type="text/javascript">
-	new ClipboardJS('.copy');
-</script>
+<script type="text/javascript">new ClipboardJS('.copy');</script>
 </html>

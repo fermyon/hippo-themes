@@ -37,7 +37,8 @@ $panel-colors: $colors !default;
   font-size: $font-size-normal;
   &:not(:last-child) {
     margin-bottom: $panel-margin;
-  }  // Colors
+  }
+  // Colors
   @each $name in $panel-colors {
     @include themed {
       $color: t($name);
@@ -151,7 +152,9 @@ label.panel-block {
 }
 .panel-icon {
   @include fa(14px, 1em);
-  color: $panel-icon-color;
+  @include themed {
+    color: t($panel-icon-color);
+  }
   @include ltr-property("margin", 0.75em);
   .fa {
     font-size: inherit;

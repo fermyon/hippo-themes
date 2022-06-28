@@ -63,8 +63,9 @@ $breadcrumb-item-separator-color: $border-hover !default;
     }
     &:last-child {
       @include ltr-property("margin", 0.5em, false);
-    }  // Alignment
+    }
   }
+  // Alignment
   &.is-centered {
     ol,
     ul {
@@ -75,8 +76,9 @@ $breadcrumb-item-separator-color: $border-hover !default;
     ol,
     ul {
       justify-content: flex-end;
-    }  // Sizes
+    }
   }
+  // Sizes
   &.is-small {
     font-size: $font-size-small;
   }
@@ -85,7 +87,8 @@ $breadcrumb-item-separator-color: $border-hover !default;
   }
   &.is-large {
     font-size: $font-size-large;
-  }  // Styles
+  }
+  // Styles
   &.has-arrow-separator {
     li + li::before {
       content: "\02192";

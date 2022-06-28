@@ -9,7 +9,7 @@ $container-max-width: $fullhd !default;
     position: relative;
     width: auto;
 
-    &:is-fluid {
+    &.is-fluid {
         max-width: none !important;
         padding-left: $gap;
         padding-right: $gap;

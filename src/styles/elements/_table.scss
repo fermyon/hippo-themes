@@ -2,10 +2,12 @@
 
 $table-color: $text-strong !default;
 $table-background-color: $scheme-main !default;
+$table-box-shadow: 0 3px 6px rgba(30,30,30,.125) !default;
 
-$table-cell-border: 1px solid $border !default;
+$table-cell-border-color: $border !default;
+$table-cell-border: 1px solid !default;
 $table-cell-border-width: 0 0 1px !default;
-$table-cell-padding: 0.5em 0.75em !default;
+$table-cell-padding: 0.67vw 2vw !default;
 $table-cell-heading-color: $text-strong !default;
 
 $table-head-cell-border-width: 0 0 2px !default;
@@ -25,14 +27,18 @@ $table-colors: $colors !default;
 
 .table {
   @extend block;
+  @include border-radius(0.333em, 0.333em);
   @include themed {
     background-color: t($table-background-color);
     color: t($table-color);
+    box-shadow: $table-box-shadow;
   }
   td,
   th {
-    border: $table-cell-border;
-    border-width: $table-cell-border-width;
+    @include themed {
+      border-color: t($border);
+    }
+    border-bottom: $table-cell-border;
     padding: $table-cell-padding;
     vertical-align: top;
     // Colors
@@ -44,9 +50,10 @@ $table-colors: $colors !default;
           background-color: $color;
           border-color: $color;
           color: $color-invert;
-        }    // Modifiers
+        }
       }
     }
+    // Modifiers
     &.is-narrow {
       white-space: nowrap;
       width: 1%;
@@ -96,16 +103,20 @@ $table-colors: $colors !default;
     background-color: $table-head-background-color;
     td,
     th {
+      @include themed {
+        color: t($table-head-cell-color);
+      }
       border-width: $table-head-cell-border-width;
-      color: $table-head-cell-color;
     }
   }
   tfoot {
     background-color: $table-foot-background-color;
     td,
     th {
+      @include themed {
+        color: t($table-foot-cell-color);
+      }
       border-width: $table-foot-cell-border-width;
-      color: $table-foot-cell-color;
     }
   }
   tbody {
@@ -115,10 +126,11 @@ $table-colors: $colors !default;
         td,
         th {
           border-bottom-width: 0;
-        }  // Modifiers
+        }
       }
     }
   }
+  // Modifiers
   &.is-bordered {
     td,
     th {

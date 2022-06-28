@@ -39,7 +39,8 @@ $media-level-2-spacing: 0.5rem !default;
     }
     margin-top: $media-spacing;
     padding-top: $media-spacing;
-  }  // Sizes
+  }
+  // Sizes
   &.is-medium {
     & + .media {
       margin-top: $media-spacing-medium;

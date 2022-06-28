@@ -11,7 +11,9 @@ $notification-colors: $colors !default;
 
 .notification {
   @extend block;
-  background-color: $notification-background-color;
+  @include themed {
+    background-color: t($notification-background-color);
+  }
   border-radius: $notification-radius;
   position: relative;
   @include ltr {
@@ -29,7 +31,9 @@ $notification-colors: $colors !default;
   }
   code,
   pre {
-    background: $notification-code-background-color;
+    @include themed {
+      background: t($notification-code-background-color);
+    }
   }
   pre code {
     background: transparent;
@@ -43,17 +47,17 @@ $notification-colors: $colors !default;
   .subtitle,
   .content {
     color: currentColor;
-  }  // Colors
-  @each $name, $pair in $notification-colors {
-    $color: nth($pair, 1);
-    $color-invert: nth($pair, 2);
-    &.is-#{$name} {
-      background-color: $color;
-      color: $color-invert;
-      // If light and dark colors are provided
-      @if length($pair) >= 4 {
-        $color-light: nth($pair, 3);
-        $color-dark: nth($pair, 4);
+  }
+  // Colors
+  @each $name in $notification-colors {
+    @include themed {
+      $color: t($name);
+      $color-invert: findColorInvert(t($name));
+      $color-light: findLightColor(t($name));
+      $color-dark: findDarkColor(t($name));
+      &.is-#{$name} {
+        background-color: $color;
+        color: $color-invert;
         &.is-light {
           background-color: $color-light;
           color: $color-dark;

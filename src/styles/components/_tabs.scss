@@ -55,8 +55,8 @@ $tabs-toggle-link-active-color: $link-invert !default;
     &:hover {
       @include themed {
         border-bottom-color: t($tabs-link-hover-border-bottom-color);
+        color: t($tabs-link-hover-color);
       }
-      color: $tabs-link-hover-color;
     }
   }
   li {
@@ -101,8 +101,9 @@ $tabs-toggle-link-active-color: $link-invert !default;
     }
     &:last-child {
       @include ltr-property("margin", 0.5em, false);
-    }  // Alignment
+    }
   }
+  // Alignment
   &.is-centered {
     ul {
       justify-content: center;
@@ -111,8 +112,9 @@ $tabs-toggle-link-active-color: $link-invert !default;
   &.is-right {
     ul {
       justify-content: flex-end;
-    }  // Styles
+    }
   }
+  // Styles
   &.is-boxed {
     a {
       border: 1px solid transparent;
@@ -226,11 +228,12 @@ $tabs-toggle-link-active-color: $link-invert !default;
             border-bottom-left-radius: $radius-rounded;
             border-top-left-radius: $radius-rounded;
             padding-left: 1.25em;
-          }  // Sizes
+          }
         }
       }
     }
   }
+  // Sizes
   &.is-small {
     font-size: $font-size-small;
   }

@@ -116,7 +116,7 @@ $modal-breakpoint: $tablet !default;
 }
 .modal-card-foot {
   @include themed {
-    border-color: $modal-card-foot-border-color;
+    border-color: t($modal-card-foot-border-color);
   }
   border-bottom-left-radius: $modal-card-foot-radius;
   border-bottom-right-radius: $modal-card-foot-radius;

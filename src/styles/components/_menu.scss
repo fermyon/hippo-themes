@@ -2,15 +2,16 @@
 
 $menu-item-color: $text !default;
 $menu-item-radius: $radius-small !default;
+$menu-item-font-weight: $font-weight-bold !default;
 $menu-item-hover-color: $text-strong !default;
-$menu-item-hover-background-color: $background !default;
+$menu-item-hover-background-color: $link-hover !default;
 $menu-item-active-color: $link-invert !default;
 $menu-item-active-background-color: $link !default;
 
 $menu-list-border-color: $border !default;
 $menu-list-border-left: 1px solid !default;
 $menu-list-line-height: 1.25 !default;
-$menu-list-link-padding: 0.5em 0.75em !default;
+$menu-list-link-padding: 0.6em 1.5em !default;
 $menu-nested-list-margin: 0.75em !default;
 $menu-nested-list-padding-left: 0.75em !default;
 
@@ -32,25 +33,49 @@ $menu-label-spacing: 1em !default;
     font-size: $font-size-large;
   }
 }
+
 .menu-list {
   line-height: $menu-list-line-height;
   a {
+    @include transition;
     @include themed {
       color: t($menu-item-color);
     }
+    font-weight: $menu-item-font-weight;
     border-radius: $menu-item-radius;
-    display: block;
+    display: inline-block;
     padding: $menu-list-link-padding;
     &:hover {
+      @include border-radius($radius-rounded, $radius-rounded);
       @include themed {
         background-color: t($menu-item-hover-background-color);
         color: t($menu-item-hover-color);
       }
-    }    // Modifiers
+    }
+    // Modifiers
     &.is-active {
       @include themed {
         background-color: t($menu-item-active-background-color);
         color: t($menu-item-active-color);
+      }
+    }
+    &.is-external-link {
+      svg {
+        @include themed {
+          fill: t($logo);
+        }
+      }
+      @include border-radius($radius-rounded, $radius-rounded);
+      margin-top: 1.5em;
+      border: 2px solid;
+      @include themed {
+        border-color: t($external-link-border);
+      }
+      &:hover {
+        @include themed {
+          background-color: t($external-link-hover-background);
+          color: t($external-link-hover);
+        }
       }
     }
   }
@@ -65,6 +90,7 @@ $menu-label-spacing: 1em !default;
     }
   }
 }
+
 .menu-label {
   @include themed {
     color: t($menu-label-color);

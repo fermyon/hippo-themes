@@ -13,7 +13,7 @@ $content-pre-padding: 1.25em 1.5em !default;
 
 $content-table-cell-border: 1px solid !default;
 $content-table-cell-border-width: 0 0 1px !default;
-$content-table-cell-padding: 0.5em 0.75em !default;
+$content-table-cell-padding: .67vw 2vw !default;
 $content-table-cell-heading-color: $text-strong !default;
 $content-table-head-cell-border-width: 0 0 2px !default;
 $content-table-head-cell-color: $text-strong !default;
@@ -26,7 +26,8 @@ $content-table-foot-cell-color: $text-strong !default;
   // Inline
   li + li {
     margin-top: 0.25em;
-  }  // Block
+  }
+  // Block
   p,
   dl,
   ol,
@@ -90,6 +91,44 @@ $content-table-foot-cell-color: $text-strong !default;
     }
     padding: $content-blockquote-padding;
   }
+  a {
+    @extend border-radius;
+    @include themed {
+      color: t($link);
+    }
+    @include transition;
+
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+
+    &:hover {
+      @include themed {
+        background-color: t($link-hover);
+      }
+      &:after {
+        opacity: 1;
+        left: 5%;
+        right: 5%;
+      }
+    }
+
+    &:after {
+      @include transition;
+      position: absolute;
+      text-align: center;
+      @include themed {
+        background: t($link-light);
+      }
+      content: " ";
+      height: 0.125rem;
+      bottom: -0.2rem;
+      display: inline-block;
+      opacity: 0;
+      left: 33%;
+      right: 33%;
+    }
+  }
   ol {
     list-style-position: outside;
     @include ltr-property("margin", 2em, false);
@@ -142,8 +181,16 @@ $content-table-foot-cell-color: $text-strong !default;
       font-style: italic;
     }
   }
+  code,
+  pre {
+    > code {
+      background-color: transparent !important;
+      background-image: none !important;
+    }
+  }
   pre {
     @include overflow-touch;
+    @include border-radius($radius-large, $radius-large);
     overflow-x: auto;
     padding: $content-pre-padding;
     white-space: pre;
@@ -205,8 +252,9 @@ $content-table-foot-cell-color: $text-strong !default;
   .tabs {
     li + li {
       margin-top: 0;
-    }  // Sizes
+    }
   }
+  // Sizes
   &.is-small {
     font-size: $font-size-small;
   }

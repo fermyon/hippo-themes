@@ -38,7 +38,9 @@ $subtitle-negative-margin: -1.25rem !default;
   }
 }
 .title {
-  color: $title-color;
+  @include themed {
+    color: t($title-color);
+  }
   @if $title-family {
     font-family: $title-family;
   }
@@ -51,16 +53,18 @@ $subtitle-negative-margin: -1.25rem !default;
   }
   &:not(.is-spaced) + .subtitle {
     margin-top: $subtitle-negative-margin;
-  }  // Sizes
-  @each $font-size in $font-sizes {
-    $i: index($font-sizes, $font-size);
+  }
+  // Sizes
+  @each $i, $font-size in $font-sizes {
     &.is-#{$i} {
       font-size: $font-size;
     }
   }
 }
 .subtitle {
-  color: $subtitle-color;
+  @include themed {
+    color: t($subtitle-color);
+  }
   @if $subtitle-family {
     font-family: $subtitle-family;
   }
@@ -68,14 +72,16 @@ $subtitle-negative-margin: -1.25rem !default;
   font-weight: $subtitle-weight;
   line-height: $subtitle-line-height;
   strong {
-    color: $subtitle-strong-color;
+    @include themed {
+      color: t($subtitle-strong-color);
+    }
     font-weight: $subtitle-strong-weight;
   }
   &:not(.is-spaced) + .title {
     margin-top: $subtitle-negative-margin;
-  }  // Sizes
-  @each $font-size in $font-sizes {
-    $i: index($font-sizes, $font-size);
+  }
+  // Sizes
+  @each $i, $font-size in $font-sizes {
     &.is-#{$i} {
       font-size: $font-size;
     }

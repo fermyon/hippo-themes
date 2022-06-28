@@ -95,8 +95,9 @@ $button-responsive-sizes: ("mobile": ("small": ($font-size-small * 0.75), "norma
     &:first-child:last-child {
       margin-left: calc(#{-0.5 * $button-padding-horizontal} - #{$button-border-width});
       margin-right: calc(#{-0.5 * $button-padding-horizontal} - #{$button-border-width});
-    }  // States
+    }
   }
+  // States
   &:hover,
   &.is-hovered {
     @include themed {
@@ -121,7 +122,8 @@ $button-responsive-sizes: ("mobile": ("small": ($font-size-small * 0.75), "norma
       border-color: t($button-active-color);
       color: t($button-active-color);
     }
-  }  // Colors
+  }
+  // Colors
   &.is-text {
     background-color: transparent;
     border-color: transparent;
@@ -282,8 +284,9 @@ $button-responsive-sizes: ("mobile": ("small": ($font-size-small * 0.75), "norma
             border-color: $color-invert;
             box-shadow: none;
             color: $color-invert;
-          }      // If light and dark colors are provided
+          }
         }
+        // light and dark colors
         $color-light: findLightColor($color);
         $color-dark: findDarkColor($color);
         &.is-light {
@@ -300,11 +303,12 @@ $button-responsive-sizes: ("mobile": ("small": ($font-size-small * 0.75), "norma
             background-color: darken($color-light, 5%);
             border-color: transparent;
             color: $color-dark;
-          }  // Sizes
+          }
         }
       }
     }
   }
+  // Sizes
   &.is-small {
     @include button-small;
   }
@@ -316,11 +320,14 @@ $button-responsive-sizes: ("mobile": ("small": ($font-size-small * 0.75), "norma
   }
   &.is-large {
     @include button-large;
-  }  // Modifiers
+  }
+  // Modifiers
   &[disabled],
   fieldset[disabled] & {
-    background-color: $button-disabled-background-color;
-    border-color: $button-disabled-border-color;
+    @include themed {
+      background-color: t($button-disabled-background-color);
+      border-color: t($button-disabled-border-color);
+    }
     box-shadow: $button-disabled-shadow;
     opacity: $button-disabled-opacity;
   }
@@ -359,7 +366,8 @@ $button-responsive-sizes: ("mobile": ("small": ($font-size-small * 0.75), "norma
   }
   &:not(:last-child) {
     margin-bottom: 1rem;
-  }  // Sizes
+  }
+  // Sizes
   &.are-small {
     .button:not(.is-normal):not(.is-medium):not(.is-large) {
       @include button-small;

@@ -1,0 +1,13 @@
+@use '../utilities/all' as *;
+
+$page-break-background-color: $border-strong !default;
+
+.page-break {
+	@include themed {
+		background: t($page-break-background-color);
+	}
+	margin: 2.5rem 0;
+	height: .33rem;
+	width: 25%;
+	@include border-radius($radius-rounded,$radius-rounded);
+}
