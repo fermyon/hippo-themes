@@ -7,7 +7,7 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
+    "build": "parcel build --public-url '.'",
     "styles": "parcel build src/styles/index.scss --dist-dir css --no-source-maps"
   },
   "devDependencies": {
