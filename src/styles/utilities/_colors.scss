@@ -183,7 +183,7 @@ $menu-label: 'menu-label';
 // themes
 $themes: (
 	light: (
-		primary: $oxfordblue-light,
+		primary: $seagreen-dark,
 		link: $colablue-dark,
 		info: $lavender-dark,
 		success: $midgreen-dark,
@@ -227,12 +227,12 @@ $themes: (
 		menu-label: gray,
 	),
 	dark: (
-		primary: $oxfordblue-xlight,
-		link: $seagreen,
+		primary: $seagreen-dark,
+		link: $colablue-dark,
 		info: $lavender-dark,
 		success: $midgreen-dark,
 		warning: $rust,
-		danger: $rust-dark,
+		danger: $rust-xdark,
 		scheme-main: $oxfordblue-light,
 		scheme-invert: functions.findColorInvert($oxfordblue),
 		text: white,
