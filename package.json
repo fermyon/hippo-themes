@@ -8,7 +8,8 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build --public-url '.'",
-    "styles": "parcel build src/styles/styles.scss --dist-dir css --no-source-maps"
+    "styles": "parcel build src/styles/styles.scss --dist-dir css --no-source-maps",
+    "js": "parcel build src/js/index.js --dist-dir js --no-source-maps"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
