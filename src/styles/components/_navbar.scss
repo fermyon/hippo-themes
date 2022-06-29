@@ -26,7 +26,7 @@ $navbar-tab-active-border-bottom-color: $link !default;
 $navbar-tab-active-border-bottom-style: solid !default;
 $navbar-tab-active-border-bottom-width: 3px !default;
 
-$navbar-dropdown-background-color: $scheme-main !default;
+$navbar-dropdown-background-color: $background !default;
 $navbar-dropdown-border-color: $border !default;
 $navbar-dropdown-border-top: 2px solid !default;
 $navbar-dropdown-offset: -4px !default;
@@ -36,12 +36,12 @@ $navbar-dropdown-z: 20 !default;
 
 $navbar-dropdown-boxed-radius: $radius-large !default;
 
-$navbar-dropdown-item-hover-color: $scheme-invert !default;
-$navbar-dropdown-item-hover-background-color: $background !default;
+$navbar-dropdown-item-hover-color: $link !default;
+$navbar-dropdown-item-hover-background-color: $link-hover !default;
 $navbar-dropdown-item-active-color: $link !default;
 $navbar-dropdown-item-active-background-color: $background !default;
 
-$navbar-divider-background-color: $background !default;
+$navbar-divider-background-color: $border !default;
 $navbar-divider-height: 2px !default;
 
 $navbar-bottom-box-shadow-size: 0 -2px 0 0 !default;
@@ -232,6 +232,9 @@ body {
     }
   }
 }
+p.navbar-item {
+  font-weight: $font-weight-bold;
+}
 a.navbar-item,
 .navbar-link {
   cursor: pointer;
@@ -243,9 +246,6 @@ a.navbar-item,
       background-color: t($navbar-item-hover-background-color);
       color: t($navbar-item-hover-color);
     }
-  }
-  &::after {
-    content: none;
   }
 }
 .navbar-item {
@@ -297,11 +297,6 @@ a.navbar-item,
     }
     margin-top: -0.375em;
     @include ltr-position(1.125em);
-  }
-  &:hover {
-    &::after {
-      content: none;
-    }
   }
 }
 .navbar-dropdown {
