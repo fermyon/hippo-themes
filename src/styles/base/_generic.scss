@@ -2,7 +2,8 @@
 
 $render-mode: optimizeLegibility !default;
 
-$body-font-size: 1em !default;
+$body-min-width: 300px !default;
+$body-font-size: 16pt !default;
 $body-line-height: 1.5 !default;
 $body-weight: $font-weight-normal !default;
 $body-overflow-x: hidden !default;
@@ -14,12 +15,18 @@ $hr-margin: 1.5rem 0 !default;
 
 
 html {
+	@include themed {
+		background-color: t($background);
+	}
 	font-size: $body-font-size;
-	text-rendering: $render-mode;
+	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
+	min-width: $body-min-width;
 	overflow-x: $body-overflow-x;
 	overflow-y: $body-overflow-y;
-	height: 100%;
+	text-rendering: $render-mode;
+	text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 article,
@@ -39,9 +46,10 @@ body {
 	}
 
 	font-family: $font-family-sans-serif;
-	font-size: $body-font-size;
 	font-weight: $body-weight;
 	line-height: $body-line-height;
+	position: relative;
+	min-height: 100vw;
 }
 
 code,
