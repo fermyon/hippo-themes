@@ -1,0 +1,7 @@
+@use '../utilities/all' as *;
+
+@include touch {
+    .is-hidden-touch {
+        display: none !important;
+    }
+}

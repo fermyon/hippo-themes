@@ -1,10 +1,12 @@
 @use '../utilities/all' as *;
 
 $footer-background-color: $scheme-main !default;
+$footer-padding: 3rem 1.5rem 3rem !default;
 
 .footer {
     @include themed {
         background-color: t($footer-background-color);
+        border-top: 2px solid t($border);
     }
-    padding: 3rem 1.5rem 6rem;
+    padding: $footer-padding;
 }

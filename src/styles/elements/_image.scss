@@ -87,10 +87,12 @@ $dimensions: 16 24 32 48 64 96 128 !default;
     padding-top: 300%;
   }
   // Sizes
-  @each $dimension in $dimensions {
-    &.is-#{$dimension}x#{$dimension} {
-      height: $dimension * 1px;
-      width: $dimension * 1px;
+  @each $dimensionX in $dimensions {
+    @each $dimensionY in $dimensions {
+      &.is-#{$dimensionX}x#{$dimensionY} {
+        height: $dimensionY * 1px;
+        width: $dimensionX * 1px;
+      }
     }
   }
 }

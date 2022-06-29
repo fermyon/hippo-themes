@@ -3,7 +3,7 @@
 $navbar-background-color: $background !default;
 $navbar-box-shadow-size: 0 2px 0 0 !default;
 $navbar-box-shadow-color: $background !default;
-$navbar-height: 3.25rem !default;
+$navbar-height: 5.25rem !default;
 $navbar-padding-vertical: 1rem !default;
 $navbar-padding-horizontal: 2rem !default;
 $navbar-z: 30 !default;
@@ -179,7 +179,7 @@ body {
   min-height: $navbar-height;
 }
 .navbar-brand {
-  padding-left: 2em;
+  padding-left: 1em;
   a.navbar-item {
     &:focus,
     &:hover {
@@ -194,7 +194,8 @@ body {
 	}
 
 	.logo-project {
-		margin: 1.2rem 0 0 1rem;
+		padding-left: 1em;
+    padding-right: 1em;
 		font-size: $font-size-5;
 		font-weight: $font-weight-bold;
 	}
@@ -281,6 +282,23 @@ a.navbar-item,
       border-bottom-style: $navbar-tab-active-border-bottom-style;
       border-bottom-width: $navbar-tab-active-border-bottom-width;
       padding-bottom: calc(0.5rem - #{$navbar-tab-active-border-bottom-width});
+    }
+  }
+  &.is-external-link {
+    svg {
+      @include themed {
+        fill: t($logo);
+      }
+    }
+    border: 1px solid;
+    @include themed {
+      border-color: t($external-link-border);
+    }
+    &:hover {
+      @include themed {
+        background-color: t($external-link-hover-background);
+        color: t($external-link-hover);
+      }
     }
   }
 }
