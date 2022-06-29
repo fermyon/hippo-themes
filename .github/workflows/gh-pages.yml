@@ -17,13 +17,13 @@ jobs:
   gh-pages:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout 💾
         uses: actions/checkout@v3
 
-      - name: Install
+      - name: Install 🔨
         run: npm ci
 
-      - name: Build
+      - name: Build 📦
         run: npm run build
 
       - name: Deploy 🚀
