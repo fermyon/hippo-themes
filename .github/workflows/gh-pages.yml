@@ -8,20 +8,25 @@ on:
 permissions:
   contents: write
 
+# This allows a subsequently queued workflow run to interrupt previous runs
+concurrency:
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  cancel-in-progress: true
+
 jobs:
-  build-and-deploy:
-    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+  gh-pages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-      uses: actions/checkout@v3
+        uses: actions/checkout@v3
 
-      - name: Install and Build
-      run: |
-      npm ci
-      npm run build
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4
-      with:
-        folder: dist
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist
