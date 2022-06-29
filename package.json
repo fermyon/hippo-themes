@@ -7,7 +7,8 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build"
+    "build": "parcel build",
+    "styles": "parcel build src/styles/index.scss --dist-dir css --no-source-maps"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
