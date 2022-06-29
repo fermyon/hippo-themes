@@ -69,7 +69,7 @@ $rtl: false !default;
 		left: calc(50% - 8px);
 		position: absolute;
 		transform-origin: center;
-		transition-duration: 86ms;
+		transition-duration: responsive.$speed;
 		transition-property: background-color, opacity, transform;
 		transition-timing-function: ease-out;
 		width: 16px;

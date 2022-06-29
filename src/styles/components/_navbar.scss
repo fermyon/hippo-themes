@@ -161,6 +161,11 @@ $navbar-colors: $colors !default;
   &.is-fixed-top {
     top: 0;
   }
+  &.is-sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+  }
 }
 html,
 body {
