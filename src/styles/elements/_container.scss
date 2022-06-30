@@ -4,7 +4,6 @@ $container-offset: (2 * $gap) !default;
 $container-max-width: $fullhd !default;
 
 .container {
-    @extend block;
     flex-grow: 1;
     margin: 0 auto;
     position: relative;
