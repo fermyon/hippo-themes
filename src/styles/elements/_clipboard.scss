@@ -1,12 +1,16 @@
 @use '../utilities/all' as *;
 
+$copy-hover-background-color: $link-hover !default;
+
 .copy {
 	@extend transition;
 	transition-duration: 0.1s;
 	cursor: pointer;
 
 	&:hover {
-		background-color: $lightgray-light;
+		@include themed {
+			background-color: t($copy-hover-background-color);
+		}
 	}
 
 	&:active {
