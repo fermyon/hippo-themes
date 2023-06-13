@@ -12,8 +12,8 @@
     "js": "parcel build src/js/index.js --dist-dir js --no-source-maps"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.6.0",
-    "parcel": "^2.6.0"
+    "@parcel/transformer-sass": "2.9.2",
+    "parcel": "2.9.2"
   },
   "dependencies": {
     "minireset.css": "^0.0.7"
