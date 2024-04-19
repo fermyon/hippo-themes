@@ -23,24 +23,6 @@ $lightlavender: #ECE5EE;
 $lightlemon:    #F9F7EE;
 $lightplum:     #D3C3D9;
 
-$brand-colors: (
-    'oxfordblue': $oxfordblue,
-    'seagreen': $seagreen,
-    'colablue': $colablue,
-    'lavender': $lavender,
-    'rust': $rust,
-    'darkocean': $darkocean,
-    'darkolive': $darkolive,
-    'darkplum': $darkplum,
-    'darkspace': $darkspace,
-    'midblue': $midblue,
-    'midgreen': $midgreen,
-    'lightgray': $lightgray,
-    'lightlavender': $lightlavender,
-    'lightlemon': $lightlemon,
-    'lightplum': $lightplum
-);
-
 // light/dark variants
 $oxfordblue-xlight: lighten($oxfordblue, 10%);
 $oxfordblue-light: lighten($oxfordblue, 5%);
@@ -289,5 +271,3 @@ $themes: (
 @function t($key) {
 	@return map-get($theme-map, $key);
 }
-
-

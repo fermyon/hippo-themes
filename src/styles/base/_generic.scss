@@ -1,32 +1,10 @@
-@use '../utilities/all' as *;
-
-$render-mode: optimizeLegibility !default;
-
-$body-min-width: 300px !default;
-$body-font-size: 16px !default;
-$body-line-height: 1.5 !default;
-$body-weight: $font-weight-normal !default;
-$body-overflow-x: hidden !default;
-$body-overflow-y: scroll !default;
-
-$hr-background-color: $border !default;
-$hr-height: 2px !default;
-$hr-margin: 1.5rem 0 !default;
-
-
 html {
-	@include themed {
-		background-color: t($background);
-	}
-	font-size: $body-font-size;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	min-width: $body-min-width;
-	overflow-x: $body-overflow-x;
-	overflow-y: $body-overflow-y;
-	text-rendering: $render-mode;
-	text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+	@apply
+		min-w-80
+		overflow-x-hidden
+		overflow-y-scroll
+		antialiased
+		bg-lightlavender-xlight dark:bg-oxfordblue;
 }
 
 article,
@@ -36,99 +14,92 @@ footer,
 header,
 hgroup,
 section {
-	display: block;
+	@apply block;
 }
 
 body {
-	@include themed {
-		background-color: t($background);
-		color: t($text);
-	}
-
-	font-family: $font-family-sans-serif;
-	font-weight: $body-weight;
-	line-height: $body-line-height;
-	position: relative;
-	min-height: 100vw;
+	@apply
+		font-sans
+		font-normal
+		leading-normal
+		relative
+		min-h-screen
+		text-oxfordblue dark:text-white
+		bg-lightlavender-xlight dark:bg-oxfordblue;
 }
 
 code,
 pre {
-	-webkit-font-smoothing: auto;
-	font-family: $font-family-mono;
-	font-size: $font-size-6;
-	max-width: 100%;
-	overflow-x: auto;
+	@apply
+		subpixel-antialiased
+		font-mono
+		text-base
+		max-w-full
+		overflow-x-auto;
 }
 
 code {
-	@include themed {
-		background-color: t($code-background);
-		color: t($code);
-	}
+	@apply
+		bg-lightlavender dark:bg-oxfordblue-dark
+		text-midblue dark:text-lavender-light;
 }
 
 pre {
-	@include themed {
-		background-color: t($pre-background);
-		color: t($pre);
-	}
+	@apply
+		bg-oxfordblue dark:bg-oxfordblue-dark
+		text-lavender;
 }
 
 hr {
-	@include themed {
-		background-color: t($hr-background-color);
-	}
-  border: none;
-  display: block;
-  height: $hr-height;
-  margin: $hr-margin;
+	@apply
+		border-none
+		block
+		h-1
+		m-6
+		bg-lavender-light dark:bg-darkocean;
 }
 
 img {
-	width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
+	@apply
+		w-auto
+		h-auto
+		max-w-full
+		max-h-full;
 }
 
 small {
-	font-size: $font-size-7;
+	@apply text-sm;
 }
 
 table
 td,
 th {
-	vertical-align: top;
-	&:not([align]) {
-		text-align: inherit;
-	}
+	@apply align-top;
 
 	th {
-		@include themed {
-			color: t($text-strong);
-		}
+		@apply text-oxfordblue-xdark dark:text-white;
 	}
 }
 
 section {
-	max-width: 60rem;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 7.5rem;
-	padding-bottom: 7.5rem;
+	@apply
+		max-w-[60rem]
+		ml-auto
+		mr-auto
+		pt-[7.5rem]
+		pb-[7.5rem];
 }
 
 a {
-	@include themed {
-		color: t($link);
-		&:hover {
-			background-color: t($link-hover);
-		}
+	@apply
+		cursor-pointer
+		no-underline
+		text-colablue-dark;
+
+	&:hover {
+		@apply bg-lightlavender dark:bg-darkspace;
 	}
-	cursor: pointer;
-	text-decoration: none;
 	strong {
-		color: currentColor;
+		@apply text-current;
 	}
 }

@@ -56,11 +56,9 @@ $button-responsive-sizes: ("mobile": ("small": ($font-size-small * 0.75), "norma
 .button {
   @extend control;
   @extend unselectable;
-  @include themed {
-    background-color: t($button-background-color);
-    border-color: t($button-border-color);
-    color: t($button-color);
-  }
+  @apply
+    border-lavender-light dark:border-darkocean
+    bg-white dark:bg-oxfordblue-light;
   border-width: $button-border-width;
   cursor: pointer;
   @if $button-family {

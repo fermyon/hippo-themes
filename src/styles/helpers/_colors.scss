@@ -1,15 +1,71 @@
 @use '../utilities/all' as *;
 
-@each $name, $color in $brand-colors {
-    .is-#{$name} {
-        background-color: $color;
-    }
+// shortcuts
+$primary: 'primary';
+$link: 'link';
+$info: 'info';
+$success: 'success';
+$warning: 'warning';
+$danger: 'danger';
+
+$colors: $primary, $link, $info, $success, $warning, $danger;
+
+// mapping brand color to shorthand
+$color-mapping: (
+	$primary: 'seagreen-dark',
+	$link: 'colablue-dark',
+	$info: 'lavender-dark',
+	$success: 'midgreen-dark',
+	$warning: 'rust',
+	$danger: 'rust-xdark',
+	'black': 'black',
+	'white': 'white',
+	'transparent': 'transparent'
+);
+
+$brand-colors: (
+    'oxfordblue',
+    'seagreen',
+    'colablue',
+    'lavender',
+    'rust',
+    'darkocean',
+    'darkolive',
+    'darkplum',
+    'darkspace',
+    'midblue',
+    'midgreen',
+    'lightgray',
+    'lightlavender',
+    'lightlemon',
+    'lightplum',
+);
+
+@each $brand-color in $brand-colors {
+	.is-#{$brand-color} {
+		@apply bg-#{$brand-color};
+	}
+	.has-text-#{$brand-color} {
+		@apply text-#{$brand-color};
+	}
 }
 
-@each $color in $colors {
-	.has-text-#{$color} {
-		@include themed {
-			color: t($color);
-		}
+@each $shorthand, $brand-color in $color-mapping {
+	.is-#{$shorthand} {
+		@apply bg-#{$brand-color};
 	}
+	.is-#{$brand-color} {
+		@apply bg-#{$brand-color};
+	}
+	.has-text-#{$shorthand} {
+		@apply text-#{$brand-color};
+	}
+}
+
+.is-light {
+	@apply brightness-150;
+}
+
+.is-dark {
+	@apply brightness-50;
 }
