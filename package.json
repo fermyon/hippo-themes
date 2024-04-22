@@ -1,5 +1,6 @@
 {
-  "name": "hippo-themes",
+  "name": "@fermyon/hippo-themes",
+  "repository": "https://github.com/fermyon/hippo-themes",
   "version": "0.1.0",
   "description": "Custom UI themes for Hippo",
   "author": "Matt Fisher <matt.fisher@fermyon.com>",

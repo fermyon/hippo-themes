@@ -1,4 +1,4 @@
-name: Publish to Github Pages
+name: Publish to Github Packages
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write
+  packages: write
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  gh-pages:
+  gh-packages:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 💾
