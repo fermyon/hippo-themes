@@ -13,43 +13,43 @@ $control-padding-vertical: calc(0.5em - #{$control-border-width}) !default;
 $control-padding-horizontal: calc(0.75em - #{$control-border-width}) !default;
 
 @mixin control {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  align-items: center;
-  border: $control-border-width solid transparent;
-  border-radius: $control-radius;
-  box-shadow: none;
-  display: inline-flex;
-  font-size: $font-size-normal;
-  height: $control-height;
-  justify-content: flex-start;
-  line-height: $control-line-height;
-  padding-bottom: $control-padding-vertical;
-  padding-left: $control-padding-horizontal;
-  padding-right: $control-padding-horizontal;
-  padding-top: $control-padding-vertical;
-  position: relative;
-  vertical-align: top;
-  // States
-  &:focus,
-  &.is-focused,
-  &:active,
-  &.is-active {
-    outline: none;
-  }
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: not-allowed;
-  }
-// The controls sizes use mixins so they can be used at different breakpoints
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	align-items: center;
+	border: $control-border-width solid transparent;
+	border-radius: $control-radius;
+	box-shadow: none;
+	display: inline-flex;
+	font-size: $font-size-normal;
+	height: $control-height;
+	justify-content: flex-start;
+	line-height: $control-line-height;
+	padding-bottom: $control-padding-vertical;
+	padding-left: $control-padding-horizontal;
+	padding-right: $control-padding-horizontal;
+	padding-top: $control-padding-vertical;
+	position: relative;
+	vertical-align: top;
+	// States
+	&:focus,
+	&.is-focused,
+	&:active,
+	&.is-active {
+		outline: none;
+	}
+	&[disabled],
+	fieldset[disabled] & {
+		cursor: not-allowed;
+	}
+	// The controls sizes use mixins so they can be used at different breakpoints
 }
 @mixin control-small {
-  border-radius: $control-radius-small;
-  font-size: $font-size-small;
+	border-radius: $control-radius-small;
+	font-size: $font-size-small;
 }
 @mixin control-medium {
-  font-size: $font-size-medium;
+	font-size: $font-size-medium;
 }
 @mixin control-large {
-  font-size: $font-size-large;
+	font-size: $font-size-large;
 }
