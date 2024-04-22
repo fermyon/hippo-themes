@@ -20,13 +20,17 @@ jobs:
       - name: Checkout 💾
         uses: actions/checkout@v4
 
+      - name: Setup Node.js 📦
+        uses: actions/setup-node@v4
+        with:
+          node-version: 'lts'
+          registry-url: 'https://npm.pkg.github.com'
+
       - name: Install 🔨
         run: npm ci
 
       - name: Build 📦
         run: npm run build
 
-      - name: Deploy 🚀
+      - name: Publish 🚀
         run: npm publish
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
