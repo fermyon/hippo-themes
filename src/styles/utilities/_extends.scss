@@ -28,6 +28,3 @@ reset {
 transition {
   @include mixins.transition;
 }
-unselectable {
-  @include mixins.unselectable;
-}

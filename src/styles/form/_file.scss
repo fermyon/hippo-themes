@@ -17,7 +17,7 @@ $file-name-max-width: 16em !default;
 $file-colors: $form-colors !default;
 
 .file {
-    @extend unselectable;
+    @apply select-none;
     align-items: stretch;
     display: flex;
     justify-content: flex-start;

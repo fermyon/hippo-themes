@@ -29,9 +29,9 @@ $tabs-toggle-link-active-border-color: $link !default;
 $tabs-toggle-link-active-color: $link-invert !default;
 
 .tabs {
+  @apply select-none;
   @extend block;
   @include overflow-touch;
-  @extend unselectable;
   align-items: stretch;
   display: flex;
   font-size: $font-size-normal;

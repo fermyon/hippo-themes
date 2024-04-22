@@ -66,8 +66,8 @@ $pagination-ellipsis-color: $lightgray !default;
 .pagination-next,
 .pagination-link,
 .pagination-ellipsis {
+  @apply select-none;
   @extend control;
-  @extend unselectable;
   font-size: $pagination-item-font-size;
   justify-content: center;
   margin: $pagination-item-margin;
