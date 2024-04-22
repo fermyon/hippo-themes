@@ -372,8 +372,7 @@ $rtl: false !default;
 }
 
 @mixin loader {
-	@apply rounded-full;
-	animation: spinAround 500ms infinite linear;
+	@apply rounded-full animate-spin;
 	border: 2px solid colors.$lightgray;
 	border-right-color: transparent;
 	border-top-color: transparent;
