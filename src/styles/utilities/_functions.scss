@@ -28,7 +28,7 @@
 				@return rgba(#000, 0.7);
 		}
 		@else {
-				@return #fff;
+				@return white;
 		}
 }
 
@@ -60,7 +60,7 @@
 	  }
 	  @return change-color($color, $lightness: $l);
 	}
-	@return $scheme-main;
+	@return white;
   }
 
   @function findDarkColor($color, $base-l: 29%) {
@@ -70,5 +70,5 @@
 	  $target-l: round($base-l + ($luminance-delta * 53));
 	  @return change-color($color, $lightness: max($base-l, $target-l));
 	}
-	@return $text-strong;
+	@return black;
   };
