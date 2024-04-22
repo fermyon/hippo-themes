@@ -1,8 +1,8 @@
 pre,
 code {
 	code.hljs {
+		@apply p-0;
 		color: #abb2bf;
-		padding: 0 !important;
 
 		.hljs-meta {
 			@apply text-seagreen;
@@ -12,7 +12,7 @@ code {
 
 .content {
 	code.hljs {
-		background-color: transparent !important;
+		@apply bg-transparent;
 	}
 
 	/* highlight.js css */
