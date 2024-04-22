@@ -8,14 +8,6 @@ $rtl: false !default;
 	transition: $property $duration $easing;
 }
 
-@mixin clearfix {
-	&::after {
-		clear: both;
-		content: " ";
-		display: table;
-	}
-}
-
 @mixin center($width, $height: 0) {
 	position: absolute;
 	@if $height != 0 {
