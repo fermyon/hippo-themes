@@ -36,7 +36,7 @@ $menu-label-spacing: 1em !default;
 .menu-list {
   line-height: $menu-list-line-height;
   a {
-    @apply rounded;
+    @apply rounded-full;
     @include transition;
     @include themed {
       color: t($menu-item-color);

@@ -21,6 +21,6 @@ $copy-hover-background-color: $link-hover !default;
 	}
 
 	&.is-rounded {
-		@apply rounded;
+		@apply rounded-full;
 	}
 }
