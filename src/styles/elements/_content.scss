@@ -189,7 +189,7 @@ $content-table-foot-cell-color: $text-strong !default;
   }
   pre {
     @include overflow-touch;
-    @include border-radius($radius-large, $radius-large);
+    @apply rounded-lg;
     overflow-x: auto;
     padding: $content-pre-padding;
     white-space: pre;

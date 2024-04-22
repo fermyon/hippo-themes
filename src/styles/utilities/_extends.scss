@@ -2,10 +2,7 @@
 @use 'mixins';
 
 border-radius {
-  @include mixins.border-radius;
-}
-box-shadow {
-  @include mixins.box-shadow;
+  @apply rounded;
 }
 control {
   @include controls.control;

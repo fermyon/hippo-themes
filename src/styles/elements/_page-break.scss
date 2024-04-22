@@ -9,5 +9,5 @@ $page-break-background-color: $border-strong !default;
 	margin: 2.5rem 0;
 	height: .33rem;
 	width: 25%;
-	@include border-radius($radius-rounded,$radius-rounded);
+	@apply rounded;
 }

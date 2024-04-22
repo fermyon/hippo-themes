@@ -21,6 +21,6 @@ $copy-hover-background-color: $link-hover !default;
 	}
 
 	&.is-rounded {
-		@include border-radius($radius-rounded, $radius-rounded);
+		@apply rounded;
 	}
 }

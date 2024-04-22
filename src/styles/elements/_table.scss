@@ -27,7 +27,7 @@ $table-colors: $colors !default;
 
 .table {
   @extend block;
-  @include border-radius(0.333em, 0.333em);
+  @apply rounded-md;
   @include themed {
     background-color: t($table-background-color);
     color: t($table-color);

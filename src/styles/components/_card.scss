@@ -19,12 +19,11 @@ $card-footer-padding: 0.75rem !default;
 $card-media-margin: $block-spacing !default;
 
 .card {
+  @apply shadow-xl;
   @include themed {
     background-color: t($card-background-color);
     color: t($card-color);
   }
-  box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),
-              0 0    0   1px     rgba(10,10,10,.02);
   outline: 1px solid rgba(255,255,255,0.2);
   border-radius: $card-radius;
   max-width: 100%;

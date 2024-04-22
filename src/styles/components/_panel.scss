@@ -32,7 +32,7 @@ $panel-icon-color: $text-light !default;
 $panel-colors: $colors !default;
 
 .panel {
-  @extend box-shadow;
+  @apply shadow;
   border-radius: $panel-radius;
   font-size: $font-size-normal;
   &:not(:last-child) {

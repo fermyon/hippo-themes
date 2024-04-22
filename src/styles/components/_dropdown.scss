@@ -53,7 +53,7 @@ $dropdown-divider-background-color: $border !default;
   z-index: $dropdown-content-z;
 }
 .dropdown-content {
-  @extend box-shadow;
+  @apply shadow-lg;
   @include themed {
     background-color: t($dropdown-content-background-color);
   }
