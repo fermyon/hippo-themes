@@ -274,6 +274,7 @@ $rtl: false !default;
 	transform-origin: center;
 	width: 0.625em;
 }
+
 @mixin block($spacing: 1.5rem) {
 	&:not(:last-child) {
 		margin-bottom: $spacing;
@@ -364,8 +365,7 @@ $rtl: false !default;
 }
 
 @mixin loader {
-	@apply rounded-full animate-spin;
-	border: 2px solid colors.$lightgray;
+	@apply rounded-full animate-spin border-2 border-lightgrey;
 	border-right-color: transparent;
 	border-top-color: transparent;
 	content: "";
