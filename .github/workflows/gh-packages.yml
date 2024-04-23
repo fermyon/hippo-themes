@@ -24,6 +24,11 @@ jobs:
       - name: Install 🔨
         run: npm ci
 
+      - name: Build 🏗️
+        run: |
+          npm run styles
+          npm run js
+
       - name: Publish 🚀
         run: npm publish
         env:

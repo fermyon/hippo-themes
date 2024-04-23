@@ -1,16 +1,22 @@
 {
   "name": "@fermyon/hippo-themes",
-  "repository": "https://github.com/fermyon/hippo-themes.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fermyon/hippo-themes.git"
+  },
   "version": "0.1.0",
   "description": "Custom UI themes for Hippo",
   "author": "Matt Fisher <matt.fisher@fermyon.com>",
   "license": "MIT",
   "source": "src/index.html",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "start": "parcel",
     "build": "parcel build --public-url '.'",
-    "styles": "parcel build src/styles/styles.scss --dist-dir css --no-source-maps",
-    "js": "parcel build src/js/index.js --dist-dir js --no-source-maps"
+    "styles": "parcel build src/styles/styles.scss --dist-dir dist/css --no-source-maps",
+    "js": "parcel build src/js/index.js --dist-dir dist/js --no-source-maps"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "2.12.0",
