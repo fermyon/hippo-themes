@@ -98,10 +98,9 @@ card-item {
 
   p {
     em {
+      @apply font-mono not-italic;
       opacity: 0.333;
       padding-right: .2em;
-      font-style: normal;
-      font-family: $font-family-mono;
     }
   }
 }
