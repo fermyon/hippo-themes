@@ -24,7 +24,6 @@ $card-media-margin: $block-spacing !default;
     background-color: t($card-background-color);
     color: t($card-color);
   }
-  outline: 1px solid rgba(255,255,255,0.2);
   border-radius: $card-radius;
   max-width: 100%;
   position: relative;
